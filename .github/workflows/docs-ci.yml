@@ -1,0 +1,51 @@
+name: Docs CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: |
+            _docs/**/*.md
+            _evals/**/*.md
+            README.md
+            AGENTS.md
+            TODO.md
+            QUICKSTART.md
+            !_docs/archives/**/*
+            !_docs/standards/templates/**/*
+          config: .markdownlint.jsonc
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Check Deno script formatting
+        run: deno fmt --check scripts/*.mjs
+
+      - name: Validate frontmatter
+        run: deno run --allow-read scripts/validate-frontmatter.mjs
+
+      - name: Validate TODO
+        run: deno run --allow-read scripts/validate-todo.mjs
+
+      - name: Validate doc links
+        run: deno run --allow-read scripts/validate-doc-links.mjs
+
+      - name: Validate QA docs
+        run: deno run --allow-read scripts/validate-qa.mjs
+
+      - name: Test validators against fixtures
+        run: deno run --allow-read --allow-run scripts/test-validators.mjs
