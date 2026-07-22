@@ -2,7 +2,7 @@
 
 ## 0. System Metadata
 
-- **Current Max ID**: `Next ID No: 5` (タスク追加時にインクリメント必須)
+- **Current Max ID**: `Next ID No: 22` (タスク追加時にインクリメント必須)
 - **ID Source of Truth**: このファイルの `Next ID No` 行が、全プロジェクトにおける唯一の ID 発番元である。
 
 ## 1. Task Lifecycle (State Machine)
@@ -297,7 +297,7 @@ Risk の詳細は `_docs/standards/quality_assurance.md` を参照する。
 
 ## Inbox
 
--
+- limited `llm_assisted` confirm gate は実装後に、確認・観察して検討してみる。
 
 ---
 
@@ -328,32 +328,6 @@ Risk の詳細は `_docs/standards/quality_assurance.md` を参照する。
 - **QA**: None
 - **Verification**: None
 
-### Docs-Chore-2: [Chore] Customize README.md for project
-
-- **Title**: [Chore] Customize README.md for project
-- **ID**: Docs-Chore-2
-- **Priority**: P0
-- **Size**: S
-- **Risk**: Low
-- **Area**: Docs
-- **Dependencies**: []
-- **Goal**: `README.md` がプロジェクトの概要、目的、使用方法に合わせて編集されている。
-- **Acceptance Criteria**:
-  - AC-001: README の概要、使用方法、カスタマイズ案内がプロジェクト固有の内容になっている。
-  - AC-002: テンプレート由来の不要な説明が残っていない。
-- **Steps**:
-  1. [ ] 現在の `README.md` を確認する
-  2. [ ] プロジェクト名、概要、説明をプロジェクトに合わせて書き換える
-  3. [ ] 使用方法セクションを編集する
-  4. [ ] 不要なテンプレート固有の記述を削除または修正する
-- **Description**:
-  - Context: テンプレートから実プロジェクトへ移行するための初期作業。
-  - Notes: `Size S` かつ `Risk Low` のため Plan / Intent / QA は不要。
-- **Plan**: None
-- **Intent**: None
-- **QA**: None
-- **Verification**: None
-
 ### Docs-Chore-3: [Chore] Update LICENSE.txt author attribution
 
 - **Title**: [Chore] Update LICENSE.txt author attribution
@@ -378,8 +352,6 @@ Risk の詳細は `_docs/standards/quality_assurance.md` を参照する。
 - **Intent**: None
 - **QA**: None
 - **Verification**: None
-
----
 
 ## Ready
 

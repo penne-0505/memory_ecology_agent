@@ -1,0 +1,64 @@
+{
+  "runner": "live_digest_model_comparison_raw_diagnostic",
+  "diagnostic_mode": "explicit_opt_in_failure_raw_response_only",
+  "started_at": "2026-06-03T13:01:02+00:00",
+  "updated_at": "2026-06-03T13:02:39+00:00",
+  "provider": "openrouter",
+  "models_requested": [
+    "deepseek/deepseek-v4-pro"
+  ],
+  "raw_response_persisted_to_db": false,
+  "raw_response_in_standard_artifact": false,
+  "failure_count": 1,
+  "failures": [
+    {
+      "observation_id": 8,
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-v4-pro-20260423",
+      "error_class": "ValidationError",
+      "error_message_sanitized": "{\"evidence_quote:string_too_long\": 1}",
+      "raw_response_sha256": "a12a002edc143e05d5a2e36b81f622b63367a145c4d569f1fa75c7535946f9c7",
+      "raw_response_text_redacted": "{\n  \"decision\": \"concern_candidate\",\n  \"reason\": \"Poses an unresolved question about selective observation and self-model, a live tension.\",\n  \"confidence\": 0.82,\n  \"evidence_summary\": \"Describes a current open question about shaping behavior without full personality system.\",\n  \"evidence_quote\": \"The current question is whether selective observation can shape agent behavior without pretending to be a full personality system.\",\n  \"related_concern_ids\": [1],\n  \"alternative_decision\": \"memory_candidate\",\n  \"risk_flags\": [\"unresolved_tension\", \"self_model_boundary\", \"ambiguous_memory_vs_concern\"],\n  \"should_apply\": false\n}",
+      "raw_response_char_count": 627,
+      "usage": {
+        "prompt_tokens": 2965,
+        "completion_tokens": 761,
+        "total_tokens": 3726,
+        "cost": 0.00755338,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00755338,
+          "upstream_inference_prompt_cost": 0.0049812,
+          "upstream_inference_completions_cost": 0.00257218
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 610,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_metadata": {
+        "finish_reason": "stop",
+        "message_keys": [
+          "content",
+          "refusal",
+          "role"
+        ],
+        "reasoning_present": false,
+        "reasoning_details_present": false,
+        "reasoning_content_present": false,
+        "structured_output_enabled": true,
+        "structured_outputs": true,
+        "provider_require_parameters": true,
+        "token_parameter": "max_tokens"
+      },
+      "captured_at": "2026-06-03T13:01:55+00:00"
+    }
+  ]
+}

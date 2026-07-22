@@ -1,0 +1,12 @@
+.venv/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+data/*.db
+agent_workspace/notes/*.md
+agent_workspace/scratch/*
+agent_workspace/exports/*

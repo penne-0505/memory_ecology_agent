@@ -1,0 +1,134 @@
+{
+  "runner": "live_digest_model_comparison",
+  "started_at": "2026-06-03T12:20:34+00:00",
+  "updated_at": "2026-06-03T12:20:38+00:00",
+  "provider": "openrouter",
+  "models_requested": [
+    "deepseek/deepseek-v4-pro"
+  ],
+  "safe_batch_size": 1,
+  "concurrency": 1,
+  "observation_concurrency": 1,
+  "max_observations": 1,
+  "fail_fast_on_safe_batch": true,
+  "fixture_world": "/home/penne/dev/active/memory_ecology_agent/_evals/fixtures/memory_ecology_sample_world/world",
+  "prompt_version": "digest_decision_llm.v3",
+  "raw_provider_response_persisted": false,
+  "structured_output_enabled": true,
+  "structured_outputs": true,
+  "provider_require_parameters": true,
+  "token_parameter": "max_tokens",
+  "reasoning_effort": "",
+  "reasoning_exclude": null,
+  "status_counts": {
+    "completed": 1
+  },
+  "failure_cause_counts": {},
+  "validation_failure_aggregate": [],
+  "observation_partials": [
+    {
+      "model": "deepseek/deepseek-v4-pro",
+      "provider": "openrouter",
+      "observation_id": 1,
+      "status": "completed",
+      "elapsed_seconds": 3.9,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-03T12:20:38+00:00",
+      "validation_failure_aggregate": [],
+      "structured_output_enabled": true,
+      "structured_outputs": true,
+      "provider_require_parameters": true,
+      "token_parameter": "max_tokens",
+      "reasoning_effort": "",
+      "reasoning_exclude": null
+    }
+  ],
+  "results": [
+    {
+      "model": "deepseek/deepseek-v4-pro",
+      "provider": "openrouter",
+      "status": "completed",
+      "phase": "safe_batch",
+      "elapsed_seconds": 4.0,
+      "temp_root": "/tmp/digest-proposal-eval-az50qhbk",
+      "metrics": {
+        "total_observations": 16,
+        "total_deterministic_decisions": 16,
+        "total_llm_proposals": 1,
+        "schema_valid_proposals": 1,
+        "rejected_or_fallback_proposals": 0,
+        "malformed_json_count": 0,
+        "validation_error_count": 0,
+        "provider_error_count": 0,
+        "agreement_count": 0,
+        "disagreement_count": 1,
+        "agreement_rate": 0.0,
+        "llm_proposed_distribution": {
+          "concern_candidate": 0,
+          "memory_candidate": 1,
+          "discard": 0,
+          "action_candidate": 0,
+          "no_op": 0
+        },
+        "final_decision_distribution": {
+          "concern_candidate": 1,
+          "memory_candidate": 0,
+          "discard": 0,
+          "action_candidate": 0,
+          "no_op": 0
+        },
+        "action_candidate_count": 0,
+        "memory_vs_concern_disagreement_count": 1,
+        "discard_vs_memory_disagreement_count": 0,
+        "llm_concern_final_discard": 0,
+        "llm_discard_final_concern_or_memory": 0,
+        "average_confidence_by_decision": {
+          "memory_candidate": 0.78
+        },
+        "confidence_distribution": {
+          "0.75-0.89": 1
+        },
+        "risk_flags_distribution": {
+          "ambiguous_memory_vs_concern": 1,
+          "stable_fact": 1
+        },
+        "model_should_apply_true_count": 0,
+        "normalized_should_apply_true_count": 0,
+        "normalization_reason_distribution": {
+          "confidence_below_threshold": 1
+        },
+        "unknown_concern_id_count": 0,
+        "raw_response_persisted_count": 0
+      },
+      "failure_causes": {},
+      "safety_checks": {
+        "raw_response_not_persisted": true,
+        "final_digest_decisions_exist": true,
+        "web_search_disabled": true,
+        "discord_disabled": true,
+        "proposal_only_shadow": true,
+        "wake_cycle_completed": true
+      },
+      "error_class": "",
+      "error_message": "",
+      "started_at": "2026-06-03T12:20:34+00:00",
+      "completed_at": "2026-06-03T12:20:38+00:00",
+      "partial_flushes": [
+        {
+          "count": 1,
+          "first_partial_elapsed_seconds": 3.9
+        }
+      ],
+      "validation_failure_aggregate": [],
+      "structured_output_enabled": true,
+      "structured_outputs": true,
+      "provider_require_parameters": true,
+      "token_parameter": "max_tokens",
+      "reasoning_effort": "",
+      "reasoning_exclude": null
+    }
+  ]
+}

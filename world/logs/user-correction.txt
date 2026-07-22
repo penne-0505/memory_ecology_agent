@@ -1,0 +1,3 @@
+User correction example
+
+When the user corrects the agent, future response selection should treat the correction as strong evidence.

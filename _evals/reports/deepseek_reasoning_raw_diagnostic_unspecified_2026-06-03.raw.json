@@ -1,0 +1,14 @@
+{
+  "runner": "live_digest_model_comparison_raw_diagnostic",
+  "diagnostic_mode": "explicit_opt_in_failure_raw_response_only",
+  "started_at": "2026-06-03T12:20:34+00:00",
+  "updated_at": "2026-06-03T12:20:38+00:00",
+  "provider": "openrouter",
+  "models_requested": [
+    "deepseek/deepseek-v4-pro"
+  ],
+  "raw_response_persisted_to_db": false,
+  "raw_response_in_standard_artifact": false,
+  "failure_count": 0,
+  "failures": []
+}

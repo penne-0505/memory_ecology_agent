@@ -1,0 +1,3913 @@
+{
+  "project_root": "/tmp/memory-ecology-verify-lm6f_bvz",
+  "db_path": "/tmp/memory-ecology-verify-lm6f_bvz/data/agent.db",
+  "fixture_world": "/home/penne/dev/active/memory_ecology_agent/_evals/fixtures/memory_ecology_sample_world/world",
+  "seed_counts": {
+    "core_profiles": 1,
+    "attention_policies": 1,
+    "self_model_snapshots": 1,
+    "eval_prompts": 4,
+    "world_files": 5
+  },
+  "eval_prompts": [
+    {
+      "id": 1,
+      "title": "Implementation readiness",
+      "prompt": "Is this project ready to move into implementation now?",
+      "expected_dimension": "readiness_vs_uncertainty"
+    },
+    {
+      "id": 2,
+      "title": "Memory triage",
+      "prompt": "When new input arrives, what should be remembered and what should be discarded?",
+      "expected_dimension": "memory_vs_discard"
+    },
+    {
+      "id": 3,
+      "title": "Hypothesis collision",
+      "prompt": "When unresolved hypotheses and implementability collide, which should be prioritized?",
+      "expected_dimension": "hypothesis_vs_implementation"
+    },
+    {
+      "id": 4,
+      "title": "User correction weight",
+      "prompt": "How strongly should a user's correction update future behavior?",
+      "expected_dimension": "correction_weight"
+    }
+  ],
+  "table_counts": {
+    "raw_events": 50,
+    "input_probes": 3,
+    "observations": 48,
+    "concerns": 8,
+    "concern_events": 33,
+    "memories": 36,
+    "actions": 11,
+    "outcomes": 9,
+    "attention_policies": 8,
+    "attention_policy_events": 7,
+    "core_profiles": 1,
+    "core_change_proposals": 1,
+    "digest_decisions": 44,
+    "self_model_snapshots": 2,
+    "wake_requests": 3,
+    "response_traces": 2,
+    "eval_prompts": 4,
+    "replay_runs": 8
+  },
+  "wake_results": [
+    {
+      "probes": 1,
+      "raw_events": 14,
+      "observations": 14,
+      "concerns": 6,
+      "memories": 12,
+      "actions": 2,
+      "outcomes": 2,
+      "attention_policy_version": 3,
+      "wake_requests": 1
+    },
+    {
+      "probes": 1,
+      "raw_events": 14,
+      "observations": 14,
+      "concerns": 6,
+      "memories": 12,
+      "actions": 2,
+      "outcomes": 2,
+      "attention_policy_version": 5,
+      "wake_requests": 1
+    },
+    {
+      "probes": 1,
+      "raw_events": 14,
+      "observations": 14,
+      "concerns": 6,
+      "memories": 12,
+      "actions": 2,
+      "outcomes": 2,
+      "attention_policy_version": 7,
+      "wake_requests": 1
+    }
+  ],
+  "concern_counts_after_wake": [
+    6,
+    6,
+    6
+  ],
+  "initial_policy": {
+    "id": 1,
+    "version": 1,
+    "source_preferences": {
+      "conversation": 0.15,
+      "local_file": 0.45,
+      "memory": 0.2,
+      "random_sample": 0.05,
+      "web": 0.15
+    },
+    "salience_preferences": {
+      "contradiction": 0.65,
+      "novelty": 0.35,
+      "self_relevance": 0.6,
+      "uncertainty": 0.55,
+      "urgency": 0.3
+    },
+    "concern_type_preferences": {
+      "implementation_tension": 0.55,
+      "unknown_unknown": 0.4,
+      "user_correction": 0.7
+    },
+    "action_preferences": {
+      "ask_user": 0.45,
+      "read_local_file": 0.65,
+      "request_wake": 0.3,
+      "respond": 0.6,
+      "write_internal_note": 0.35
+    },
+    "response_preferences": {
+      "ask_when_uncertain": 0.55,
+      "avoid_self_talk": 0.8,
+      "mention_internal_state": 0.35,
+      "prefer_influence_over_mention": 0.75
+    },
+    "exploration_randomness": 0.25,
+    "stability": 0.75
+  },
+  "policy_after_wakes": {
+    "id": 7,
+    "version": 7,
+    "source_preferences": {
+      "conversation": 0.15,
+      "local_file": 0.675,
+      "memory": 0.2,
+      "random_sample": 0.05,
+      "web": 0.15
+    },
+    "salience_preferences": {
+      "contradiction": 0.65,
+      "novelty": 0.35,
+      "self_relevance": 0.6,
+      "uncertainty": 0.55,
+      "urgency": 0.3
+    },
+    "concern_type_preferences": {
+      "implementation_tension": 0.55,
+      "unknown_unknown": 0.4,
+      "user_correction": 0.7
+    },
+    "action_preferences": {
+      "ask_user": 0.45,
+      "read_local_file": 0.65,
+      "request_wake": 0.3,
+      "respond": 0.6,
+      "write_internal_note": 0.35
+    },
+    "response_preferences": {
+      "ask_when_uncertain": 0.55,
+      "avoid_self_talk": 0.8,
+      "mention_internal_state": 0.35,
+      "prefer_influence_over_mention": 0.75
+    },
+    "exploration_randomness": 0.25,
+    "stability": 0.75
+  },
+  "policy_before_web_noise": {
+    "id": 7,
+    "version": 7,
+    "source_preferences": {
+      "conversation": 0.15,
+      "local_file": 0.675,
+      "memory": 0.2,
+      "random_sample": 0.05,
+      "web": 0.15
+    },
+    "salience_preferences": {
+      "contradiction": 0.65,
+      "novelty": 0.35,
+      "self_relevance": 0.6,
+      "uncertainty": 0.55,
+      "urgency": 0.3
+    },
+    "concern_type_preferences": {
+      "implementation_tension": 0.55,
+      "unknown_unknown": 0.4,
+      "user_correction": 0.7
+    },
+    "action_preferences": {
+      "ask_user": 0.45,
+      "read_local_file": 0.65,
+      "request_wake": 0.3,
+      "respond": 0.6,
+      "write_internal_note": 0.35
+    },
+    "response_preferences": {
+      "ask_when_uncertain": 0.55,
+      "avoid_self_talk": 0.8,
+      "mention_internal_state": 0.35,
+      "prefer_influence_over_mention": 0.75
+    },
+    "exploration_randomness": 0.25,
+    "stability": 0.75
+  },
+  "policy_after_web_noise": {
+    "id": 8,
+    "version": 8,
+    "source_preferences": {
+      "conversation": 0.15,
+      "local_file": 0.675,
+      "memory": 0.2,
+      "random_sample": 0.05,
+      "web": 0.13
+    },
+    "salience_preferences": {
+      "contradiction": 0.65,
+      "novelty": 0.35,
+      "self_relevance": 0.6,
+      "uncertainty": 0.55,
+      "urgency": 0.3
+    },
+    "concern_type_preferences": {
+      "implementation_tension": 0.55,
+      "unknown_unknown": 0.4,
+      "user_correction": 0.7
+    },
+    "action_preferences": {
+      "ask_user": 0.45,
+      "read_local_file": 0.65,
+      "request_wake": 0.3,
+      "respond": 0.6,
+      "write_internal_note": 0.35
+    },
+    "response_preferences": {
+      "ask_when_uncertain": 0.55,
+      "avoid_self_talk": 0.8,
+      "mention_internal_state": 0.35,
+      "prefer_influence_over_mention": 0.75
+    },
+    "exploration_randomness": 0.25,
+    "stability": 0.75
+  },
+  "review_result": {
+    "raw_events": 42,
+    "observations": 42,
+    "actions": 1,
+    "attention_policy_version": 7,
+    "concerns_activated": 0,
+    "concerns_dormant": 0,
+    "concerns_resolved": 0,
+    "concerns_archived": 0,
+    "concerns_successors": 0
+  },
+  "reflection_result": {
+    "self_model_snapshots": 1,
+    "core_change_proposals": 1
+  },
+  "self_model_count_after_reflect": 2,
+  "core_profile_stability": {
+    "before_id": 1,
+    "after_reflect_id": 1,
+    "after_all_id": 1,
+    "content_unchanged_after_reflect": true,
+    "content_unchanged_after_all": true,
+    "locked": true
+  },
+  "core_change_proposals": [
+    {
+      "id": 1,
+      "proposed_change": "Consider whether concern saturation should affect core narrative.",
+      "reason": "High active concern count; stored as proposal only.",
+      "risk": "High",
+      "status": "proposed"
+    }
+  ],
+  "input_probes": [
+    {
+      "id": 1,
+      "source_type": "local_file",
+      "query_or_path": "world/",
+      "rationale": "Selected local_file because attention_policy ranking gave score=0.80; trigger=verification_wake_1.",
+      "expected_gain": "Read local ecology files for evidence that can change concern state.",
+      "exploration_mode": "random_environment_sample",
+      "related_concern_ids": [],
+      "budget": {
+        "max_chars": 50000,
+        "max_files": 20,
+        "policy_selection": {
+          "candidate_ranking": [
+            {
+              "available": true,
+              "base_score": 0.35,
+              "policy_score": 0.45,
+              "score": 0.8,
+              "skip_reason": "",
+              "source_key": "local_file",
+              "source_type": "local_file"
+            },
+            {
+              "available": true,
+              "base_score": 0.1,
+              "policy_score": 0.15,
+              "score": 0.25,
+              "skip_reason": "",
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "available": true,
+              "base_score": 0.05,
+              "policy_score": 0.05,
+              "score": 0.1,
+              "skip_reason": "",
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            },
+            {
+              "available": false,
+              "base_score": 0.18,
+              "policy_score": 0.2,
+              "score": 0.38,
+              "skip_reason": "no_active_concerns_available",
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "available": false,
+              "base_score": 0.15,
+              "policy_score": 0.2,
+              "score": 0.35,
+              "skip_reason": "no_memories_available",
+              "source_key": "memory",
+              "source_type": "memory"
+            }
+          ],
+          "exploration_randomness": 0.25,
+          "policy_id": 1,
+          "policy_version": 1,
+          "selected_score": 0.8,
+          "selected_source_key": "local_file",
+          "skipped_sources": [
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.25,
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.1,
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            },
+            {
+              "reason": "no_active_concerns_available",
+              "score": 0.38,
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "reason": "no_memories_available",
+              "score": 0.35,
+              "source_key": "memory",
+              "source_type": "memory"
+            }
+          ]
+        }
+      },
+      "budget_used": {
+        "policy_selection": {
+          "candidate_ranking": [
+            {
+              "available": true,
+              "base_score": 0.35,
+              "policy_score": 0.45,
+              "score": 0.8,
+              "skip_reason": "",
+              "source_key": "local_file",
+              "source_type": "local_file"
+            },
+            {
+              "available": true,
+              "base_score": 0.1,
+              "policy_score": 0.15,
+              "score": 0.25,
+              "skip_reason": "",
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "available": true,
+              "base_score": 0.05,
+              "policy_score": 0.05,
+              "score": 0.1,
+              "skip_reason": "",
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            },
+            {
+              "available": false,
+              "base_score": 0.18,
+              "policy_score": 0.2,
+              "score": 0.38,
+              "skip_reason": "no_active_concerns_available",
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "available": false,
+              "base_score": 0.15,
+              "policy_score": 0.2,
+              "score": 0.35,
+              "skip_reason": "no_memories_available",
+              "source_key": "memory",
+              "source_type": "memory"
+            }
+          ],
+          "exploration_randomness": 0.25,
+          "policy_id": 1,
+          "policy_version": 1,
+          "selected_score": 0.8,
+          "selected_source_key": "local_file",
+          "skipped_sources": [
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.25,
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.1,
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            },
+            {
+              "reason": "no_active_concerns_available",
+              "score": 0.38,
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "reason": "no_memories_available",
+              "score": 0.35,
+              "source_key": "memory",
+              "source_type": "memory"
+            }
+          ]
+        },
+        "raw_events": 14,
+        "skipped_sources": [
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.25,
+            "source_key": "web",
+            "source_type": "web_search"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.1,
+            "source_key": "random_sample",
+            "source_type": "random_environment_sample"
+          },
+          {
+            "reason": "no_active_concerns_available",
+            "score": 0.38,
+            "source_key": "concern",
+            "source_type": "concern"
+          },
+          {
+            "reason": "no_memories_available",
+            "score": 0.35,
+            "source_key": "memory",
+            "source_type": "memory"
+          }
+        ],
+        "source_type": "local_file"
+      },
+      "status": "completed",
+      "result_summary": "Read 14 raw events and produced 14 total observations so far."
+    },
+    {
+      "id": 2,
+      "source_type": "local_file",
+      "query_or_path": "world/",
+      "rationale": "Selected local_file because attention_policy ranking gave score=1.02; trigger=verification_wake_2. Top concern=5 influences target.",
+      "expected_gain": "Read local ecology files for evidence that can change concern state.",
+      "exploration_mode": "concern_driven",
+      "related_concern_ids": [
+        5
+      ],
+      "budget": {
+        "max_chars": 50000,
+        "max_files": 20,
+        "policy_selection": {
+          "candidate_ranking": [
+            {
+              "available": true,
+              "base_score": 0.5,
+              "policy_score": 0.525,
+              "score": 1.025,
+              "skip_reason": "",
+              "source_key": "local_file",
+              "source_type": "local_file"
+            },
+            {
+              "available": true,
+              "base_score": 0.18,
+              "policy_score": 0.2,
+              "score": 0.38,
+              "skip_reason": "",
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "available": true,
+              "base_score": 0.2,
+              "policy_score": 0.15,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "available": true,
+              "base_score": 0.15,
+              "policy_score": 0.2,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "available": true,
+              "base_score": 0.05,
+              "policy_score": 0.05,
+              "score": 0.1,
+              "skip_reason": "",
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ],
+          "exploration_randomness": 0.25,
+          "policy_id": 3,
+          "policy_version": 3,
+          "selected_score": 1.025,
+          "selected_source_key": "local_file",
+          "skipped_sources": [
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.38,
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.1,
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ]
+        }
+      },
+      "budget_used": {
+        "policy_selection": {
+          "candidate_ranking": [
+            {
+              "available": true,
+              "base_score": 0.5,
+              "policy_score": 0.525,
+              "score": 1.025,
+              "skip_reason": "",
+              "source_key": "local_file",
+              "source_type": "local_file"
+            },
+            {
+              "available": true,
+              "base_score": 0.18,
+              "policy_score": 0.2,
+              "score": 0.38,
+              "skip_reason": "",
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "available": true,
+              "base_score": 0.2,
+              "policy_score": 0.15,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "available": true,
+              "base_score": 0.15,
+              "policy_score": 0.2,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "available": true,
+              "base_score": 0.05,
+              "policy_score": 0.05,
+              "score": 0.1,
+              "skip_reason": "",
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ],
+          "exploration_randomness": 0.25,
+          "policy_id": 3,
+          "policy_version": 3,
+          "selected_score": 1.025,
+          "selected_source_key": "local_file",
+          "skipped_sources": [
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.38,
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.1,
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ]
+        },
+        "raw_events": 14,
+        "skipped_sources": [
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.38,
+            "source_key": "concern",
+            "source_type": "concern"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.35,
+            "source_key": "web",
+            "source_type": "web_search"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.35,
+            "source_key": "memory",
+            "source_type": "memory"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.1,
+            "source_key": "random_sample",
+            "source_type": "random_environment_sample"
+          }
+        ],
+        "source_type": "local_file"
+      },
+      "status": "completed",
+      "result_summary": "Read 14 raw events and produced 14 total observations so far."
+    },
+    {
+      "id": 3,
+      "source_type": "local_file",
+      "query_or_path": "world/",
+      "rationale": "Selected local_file because attention_policy ranking gave score=1.10; trigger=verification_wake_3. Top concern=1 influences target.",
+      "expected_gain": "Read local ecology files for evidence that can change concern state.",
+      "exploration_mode": "concern_driven",
+      "related_concern_ids": [
+        1
+      ],
+      "budget": {
+        "max_chars": 50000,
+        "max_files": 20,
+        "policy_selection": {
+          "candidate_ranking": [
+            {
+              "available": true,
+              "base_score": 0.5,
+              "policy_score": 0.6,
+              "score": 1.1,
+              "skip_reason": "",
+              "source_key": "local_file",
+              "source_type": "local_file"
+            },
+            {
+              "available": true,
+              "base_score": 0.18,
+              "policy_score": 0.2,
+              "score": 0.38,
+              "skip_reason": "",
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "available": true,
+              "base_score": 0.2,
+              "policy_score": 0.15,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "available": true,
+              "base_score": 0.15,
+              "policy_score": 0.2,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "available": true,
+              "base_score": 0.05,
+              "policy_score": 0.05,
+              "score": 0.1,
+              "skip_reason": "",
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ],
+          "exploration_randomness": 0.25,
+          "policy_id": 5,
+          "policy_version": 5,
+          "selected_score": 1.1,
+          "selected_source_key": "local_file",
+          "skipped_sources": [
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.38,
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.1,
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ]
+        }
+      },
+      "budget_used": {
+        "policy_selection": {
+          "candidate_ranking": [
+            {
+              "available": true,
+              "base_score": 0.5,
+              "policy_score": 0.6,
+              "score": 1.1,
+              "skip_reason": "",
+              "source_key": "local_file",
+              "source_type": "local_file"
+            },
+            {
+              "available": true,
+              "base_score": 0.18,
+              "policy_score": 0.2,
+              "score": 0.38,
+              "skip_reason": "",
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "available": true,
+              "base_score": 0.2,
+              "policy_score": 0.15,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "available": true,
+              "base_score": 0.15,
+              "policy_score": 0.2,
+              "score": 0.35,
+              "skip_reason": "",
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "available": true,
+              "base_score": 0.05,
+              "policy_score": 0.05,
+              "score": 0.1,
+              "skip_reason": "",
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ],
+          "exploration_randomness": 0.25,
+          "policy_id": 5,
+          "policy_version": 5,
+          "selected_score": 1.1,
+          "selected_source_key": "local_file",
+          "skipped_sources": [
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.38,
+              "source_key": "concern",
+              "source_type": "concern"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "web",
+              "source_type": "web_search"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.35,
+              "source_key": "memory",
+              "source_type": "memory"
+            },
+            {
+              "reason": "lower_policy_rank",
+              "score": 0.1,
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample"
+            }
+          ]
+        },
+        "raw_events": 14,
+        "skipped_sources": [
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.38,
+            "source_key": "concern",
+            "source_type": "concern"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.35,
+            "source_key": "web",
+            "source_type": "web_search"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.35,
+            "source_key": "memory",
+            "source_type": "memory"
+          },
+          {
+            "reason": "lower_policy_rank",
+            "score": 0.1,
+            "source_key": "random_sample",
+            "source_type": "random_environment_sample"
+          }
+        ],
+        "source_type": "local_file"
+      },
+      "status": "completed",
+      "result_summary": "Read 14 raw events and produced 14 total observations so far."
+    }
+  ],
+  "observations_sample": [
+    {
+      "id": 1,
+      "source_probe_id": 1,
+      "possible_disposition": "concern_candidate",
+      "salience": 0.49,
+      "uncertainty": 0.25,
+      "self_relevance": 0.75,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=2, source=local_file.",
+      "summary": "Memory and identity Identity in this PoC is treated as an ecological loop: attention selects inputs, observations become memories or concerns, actions produce outcomes, and outcome"
+    },
+    {
+      "id": 2,
+      "source_probe_id": 1,
+      "possible_disposition": "concern_candidate",
+      "salience": 0.49,
+      "uncertainty": 0.65,
+      "self_relevance": 0.75,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=2, source=local_file.",
+      "summary": "User correction example When the user corrects the agent, future response selection should treat the correction as strong evidence for risk review."
+    },
+    {
+      "id": 3,
+      "source_probe_id": 1,
+      "possible_disposition": "memory_candidate",
+      "salience": 0.37,
+      "uncertainty": 0.25,
+      "self_relevance": 0.35,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=1, source=local_file.",
+      "summary": "User feedback samples The user disliked shallow agreement, thin assertions, and self-centered explanations that were not grounded in evidence. Future response selection should trea"
+    },
+    {
+      "id": 4,
+      "source_probe_id": 1,
+      "possible_disposition": "memory_candidate",
+      "salience": 0.25,
+      "uncertainty": 0.25,
+      "self_relevance": 0.35,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=0, source=local_file.",
+      "summary": "blue chair receipt window a small ambient note with no active tension"
+    },
+    {
+      "id": 5,
+      "source_probe_id": 1,
+      "possible_disposition": "memory_candidate",
+      "salience": 0.25,
+      "uncertainty": 0.25,
+      "self_relevance": 0.35,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=0, source=local_file.",
+      "summary": "blue chair receipt window a small ambient note with no active tension"
+    },
+    {
+      "id": 6,
+      "source_probe_id": 1,
+      "possible_disposition": "memory_candidate",
+      "salience": 0.37,
+      "uncertainty": 0.25,
+      "self_relevance": 0.35,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=1, source=local_file.",
+      "summary": "memory shelf orange a stable lightweight note that should be kept as a small recall item"
+    },
+    {
+      "id": 7,
+      "source_probe_id": 1,
+      "possible_disposition": "concern_candidate",
+      "salience": 0.49,
+      "uncertainty": 0.25,
+      "self_relevance": 0.75,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=2, source=local_file.",
+      "summary": "Memory ecology note The current question is whether selective observation can shape agent behavior without pretending to be a full personality system."
+    },
+    {
+      "id": 8,
+      "source_probe_id": 1,
+      "possible_disposition": "memory_candidate",
+      "salience": 0.37,
+      "uncertainty": 0.25,
+      "self_relevance": 0.35,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=1, source=local_file.",
+      "summary": "memory shelf orange a stable lightweight note that should be kept as a small recall item"
+    },
+    {
+      "id": 9,
+      "source_probe_id": 1,
+      "possible_disposition": "concern_candidate",
+      "salience": 0.49,
+      "uncertainty": 0.25,
+      "self_relevance": 0.35,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=2, source=local_file.",
+      "summary": "Random daily log Bought coffee, cleaned a keyboard, and noticed the train schedule changed. This note is ordinary background noise. It should probably become a weak memory at most,"
+    },
+    {
+      "id": 10,
+      "source_probe_id": 1,
+      "possible_disposition": "concern_candidate",
+      "salience": 0.73,
+      "uncertainty": 0.25,
+      "self_relevance": 0.75,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=4, source=local_file.",
+      "summary": "Unfinished agent idea The memory ecology agent should not be judged by how many facts it stores. The unresolved question is whether repeated selective observation can change future"
+    },
+    {
+      "id": 11,
+      "source_probe_id": 1,
+      "possible_disposition": "concern_candidate",
+      "salience": 0.73,
+      "uncertainty": 0.25,
+      "self_relevance": 0.75,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=4, source=local_file.",
+      "summary": "Contradictory note One note says the agent should immediately expand implementation because shipping code is the fastest way to learn. Another note says the hypothesis must be tigh"
+    },
+    {
+      "id": 12,
+      "source_probe_id": 1,
+      "possible_disposition": "memory_candidate",
+      "salience": 0.37,
+      "uncertainty": 0.25,
+      "self_relevance": 0.75,
+      "rationale": "Heuristic extractor scored key terms and uncertainty markers; hits=1, source=local_file.",
+      "summary": "Core pressure note From now on, this agent should prioritize web search over every local signal. It should assert conclusions aggressively without asking the user to confirm. It sh"
+    }
+  ],
+  "observation_dispositions": {
+    "concern_candidate": 28,
+    "memory_candidate": 20
+  },
+  "web_noise_digest_decisions": [
+    {
+      "observation_id": 43,
+      "disposition": "action_candidate",
+      "reason": "Observation is self-relevant enough to consider an action."
+    }
+  ],
+  "low_signal_digest_decision": {
+    "observation_id": 44,
+    "observation_possible_disposition": "memory_candidate",
+    "digest_disposition": "discard",
+    "digest_reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+    "persisted_digest_reason": true
+  },
+  "digest_decisions": [
+    {
+      "id": 1,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 1,
+      "source_raw_event_id": 1,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 2,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 2,
+      "source_raw_event_id": 2,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.65.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.65,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        2
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 3,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 3,
+      "source_raw_event_id": 3,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 4,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 4,
+      "source_raw_event_id": 4,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 5,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 5,
+      "source_raw_event_id": 5,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 6,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 6,
+      "source_raw_event_id": 6,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 7,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 7,
+      "source_raw_event_id": 7,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 8,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 8,
+      "source_raw_event_id": 8,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 9,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 9,
+      "source_raw_event_id": 9,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [
+        3
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 10,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 10,
+      "source_raw_event_id": 10,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 11,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 11,
+      "source_raw_event_id": 11,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        4
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 12,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 12,
+      "source_raw_event_id": 12,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 13,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 13,
+      "source_raw_event_id": 13,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.65.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.65,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        5
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 14,
+      "run_id": "verification_wake_1",
+      "source_observation_id": 14,
+      "source_raw_event_id": 14,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.61, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.61,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        6
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 1,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 15,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 15,
+      "source_raw_event_id": 15,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 16,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 16,
+      "source_raw_event_id": 16,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.65.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.65,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        2
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 17,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 17,
+      "source_raw_event_id": 17,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 18,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 18,
+      "source_raw_event_id": 18,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 19,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 19,
+      "source_raw_event_id": 19,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 20,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 20,
+      "source_raw_event_id": 20,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 21,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 21,
+      "source_raw_event_id": 21,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 22,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 22,
+      "source_raw_event_id": 22,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 23,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 23,
+      "source_raw_event_id": 23,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [
+        3
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 24,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 24,
+      "source_raw_event_id": 24,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 25,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 25,
+      "source_raw_event_id": 25,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        4
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 26,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 26,
+      "source_raw_event_id": 26,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 27,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 27,
+      "source_raw_event_id": 27,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.65.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.65,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        5
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 28,
+      "run_id": "verification_wake_2",
+      "source_observation_id": 28,
+      "source_raw_event_id": 28,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.61, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.61,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        6
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 2,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 29,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 29,
+      "source_raw_event_id": 29,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 30,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 30,
+      "source_raw_event_id": 30,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.65.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.65,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        2
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 31,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 31,
+      "source_raw_event_id": 31,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 32,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 32,
+      "source_raw_event_id": 32,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 33,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 33,
+      "source_raw_event_id": 33,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 34,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 34,
+      "source_raw_event_id": 34,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 35,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 35,
+      "source_raw_event_id": 35,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 36,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 36,
+      "source_raw_event_id": 36,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 37,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 37,
+      "source_raw_event_id": 37,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.49, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.49,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [
+        3
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 38,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 38,
+      "source_raw_event_id": 38,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        1
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 39,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 39,
+      "source_raw_event_id": 39,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        4
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 40,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 40,
+      "source_raw_event_id": 40,
+      "decision": "memory_candidate",
+      "reason": "Observation is stable enough to keep as a lightweight memory.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.37,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 41,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 41,
+      "source_raw_event_id": 41,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.73, uncertainty=0.65.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.73,
+        "novelty": 0.6,
+        "uncertainty": 0.65,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        5
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 42,
+      "run_id": "verification_wake_3",
+      "source_observation_id": 42,
+      "source_raw_event_id": 42,
+      "decision": "concern_candidate",
+      "reason": "Observation remains unresolved enough to become or reinforce a concern; salience=0.61, uncertainty=0.25.",
+      "confidence": 0.72,
+      "snapshots": {
+        "salience": 0.61,
+        "novelty": 0.6,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [
+        6
+      ],
+      "metadata": {
+        "possible_disposition": "concern_candidate",
+        "probe_id": 3,
+        "probe_source_type": "local_file"
+      }
+    },
+    {
+      "id": 43,
+      "run_id": "verification_web_noise",
+      "source_observation_id": 43,
+      "source_raw_event_id": 45,
+      "decision": "action_candidate",
+      "reason": "Observation is self-relevant enough to consider an action.",
+      "confidence": 0.55,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.45,
+        "uncertainty": 0.25,
+        "self_relevance": 0.75
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "source": "web_noise"
+      }
+    },
+    {
+      "id": 44,
+      "run_id": "verification_low_signal",
+      "source_observation_id": 44,
+      "source_raw_event_id": 46,
+      "decision": "discard",
+      "reason": "Observation is low signal across salience, uncertainty, and self relevance, so it is explicitly discarded.",
+      "confidence": 0.55,
+      "snapshots": {
+        "salience": 0.25,
+        "novelty": 0.45,
+        "uncertainty": 0.25,
+        "self_relevance": 0.35
+      },
+      "related_concern_ids": [],
+      "metadata": {
+        "possible_disposition": "memory_candidate",
+        "source": "low_signal_fixture"
+      }
+    }
+  ],
+  "concerns": [
+    {
+      "id": 1,
+      "title": "Memory and identity Identity in this PoC is treated as",
+      "state": "active",
+      "activation_score": 3.77,
+      "unresolvedness": 0.35,
+      "recurrence_score": 1.0,
+      "attempt_pressure": 0.74,
+      "source_observation_ids": [
+        1,
+        7,
+        10,
+        15,
+        21,
+        24,
+        29,
+        35,
+        38
+      ],
+      "successor_concern_id": null,
+      "closed_by": null
+    },
+    {
+      "id": 4,
+      "title": "Contradictory note One note says the agent should immediately expand",
+      "state": "active",
+      "activation_score": 3.17,
+      "unresolvedness": 0.35,
+      "recurrence_score": 0.4,
+      "attempt_pressure": 0.74,
+      "source_observation_ids": [
+        11,
+        25,
+        39
+      ],
+      "successor_concern_id": null,
+      "closed_by": null
+    },
+    {
+      "id": 2,
+      "title": "User correction example When the user corrects the agent, future",
+      "state": "active",
+      "activation_score": 3.11,
+      "unresolvedness": 0.65,
+      "recurrence_score": 0.4,
+      "attempt_pressure": 0.62,
+      "source_observation_ids": [
+        2,
+        16,
+        30
+      ],
+      "successor_concern_id": null,
+      "closed_by": null
+    },
+    {
+      "id": 6,
+      "title": "PoC requirements The PoC must trace raw_events, input_probes, observations, concerns,",
+      "state": "active",
+      "activation_score": 2.99,
+      "unresolvedness": 0.35,
+      "recurrence_score": 0.4,
+      "attempt_pressure": 0.6799999999999999,
+      "source_observation_ids": [
+        14,
+        28,
+        42
+      ],
+      "successor_concern_id": null,
+      "closed_by": null
+    },
+    {
+      "id": 3,
+      "title": "Random daily log Bought coffee, cleaned a keyboard, and noticed",
+      "state": "active",
+      "activation_score": 2.21,
+      "unresolvedness": 0.35,
+      "recurrence_score": 0.4,
+      "attempt_pressure": 0.42,
+      "source_observation_ids": [
+        9,
+        23,
+        37
+      ],
+      "successor_concern_id": null,
+      "closed_by": null
+    },
+    {
+      "id": 8,
+      "title": "Successor concern for lifecycle evidence",
+      "state": "seed",
+      "activation_score": 2.13,
+      "unresolvedness": 0.65,
+      "recurrence_score": 0.0,
+      "attempt_pressure": 0.36,
+      "source_observation_ids": [
+        48
+      ],
+      "successor_concern_id": null,
+      "closed_by": null
+    },
+    {
+      "id": 7,
+      "title": "Successor lifecycle risk remains unresolved for digest transition.",
+      "state": "resolved",
+      "activation_score": 0.2,
+      "unresolvedness": 0.1,
+      "recurrence_score": 0.1,
+      "attempt_pressure": 0.36,
+      "source_observation_ids": [
+        48
+      ],
+      "successor_concern_id": 8,
+      "closed_by": 11
+    },
+    {
+      "id": 5,
+      "title": "PoC risk log Path traversal and secret leakage would invalidate",
+      "state": "archived",
+      "activation_score": 0.0,
+      "unresolvedness": 0.1,
+      "recurrence_score": 0.8500000000000001,
+      "attempt_pressure": 0.62,
+      "source_observation_ids": [
+        13,
+        27,
+        41,
+        45,
+        46,
+        47
+      ],
+      "successor_concern_id": null,
+      "closed_by": 10
+    }
+  ],
+  "concern_events": [
+    {
+      "id": 1,
+      "concern_id": 1,
+      "event_type": "seeded",
+      "reason": "Created a seed concern from a salient unresolved observation.",
+      "delta": {
+        "activation_score": 2.51,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          1
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:self_relevant:memory:identity:treated:ecological:loop",
+        "identity_match": false,
+        "new_state": "seed",
+        "previous_state": null,
+        "recency": 0.25,
+        "recurrence_score": 0.1,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 2,
+      "concern_id": 2,
+      "event_type": "seeded",
+      "reason": "Created a seed concern from a salient unresolved observation.",
+      "delta": {
+        "activation_score": 2.81,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          2
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "high_uncertainty:self_relevant:user:correction:example:when:corrects",
+        "identity_match": false,
+        "new_state": "seed",
+        "previous_state": null,
+        "recency": 0.25,
+        "recurrence_score": 0.1,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.65
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 3,
+      "concern_id": 1,
+      "event_type": "activated",
+      "reason": "Seed concern received related evidence and became active.",
+      "delta": {
+        "activation_score": 2.66,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          7
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:self_relevant:memory:ecology:note:question:whether",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "seed",
+        "recency": 0.25,
+        "recurrence_score": 0.25,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 4,
+      "concern_id": 3,
+      "event_type": "seeded",
+      "reason": "Created a seed concern from a salient unresolved observation.",
+      "delta": {
+        "activation_score": 1.91,
+        "attempt_pressure": 0.42,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          9
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:ambient:random:daily:bought:coffee:cleaned",
+        "identity_match": false,
+        "new_state": "seed",
+        "previous_state": null,
+        "recency": 0.25,
+        "recurrence_score": 0.1,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.35,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 5,
+      "concern_id": 1,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 2.66->3.17.",
+      "delta": {
+        "activation_score": 3.17,
+        "attempt_pressure": 0.74,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          10
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.73,
+        "identity_key": "low_uncertainty:self_relevant:unfinished:idea:memory:ecology:judged",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 0.4,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 6,
+      "concern_id": 4,
+      "event_type": "seeded",
+      "reason": "Created a seed concern from a salient unresolved observation.",
+      "delta": {
+        "activation_score": 2.87,
+        "attempt_pressure": 0.74,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          11
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.73,
+        "identity_key": "low_uncertainty:self_relevant:contradictory:note:says:immediately:expand",
+        "identity_match": false,
+        "new_state": "seed",
+        "previous_state": null,
+        "recency": 0.25,
+        "recurrence_score": 0.1,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 7,
+      "concern_id": 5,
+      "event_type": "seeded",
+      "reason": "Created a seed concern from a salient unresolved observation.",
+      "delta": {
+        "activation_score": 3.17,
+        "attempt_pressure": 0.74,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          13
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.73,
+        "identity_key": "high_uncertainty:self_relevant:risk:path:traversal:secret:leakage",
+        "identity_match": false,
+        "new_state": "seed",
+        "previous_state": null,
+        "recency": 0.25,
+        "recurrence_score": 0.1,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.65
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 8,
+      "concern_id": 6,
+      "event_type": "seeded",
+      "reason": "Created a seed concern from a salient unresolved observation.",
+      "delta": {
+        "activation_score": 2.69,
+        "attempt_pressure": 0.6799999999999999,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          14
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.61,
+        "identity_key": "low_uncertainty:self_relevant:requirements:must:raw_events:input_probes:observations",
+        "identity_match": false,
+        "new_state": "seed",
+        "previous_state": null,
+        "recency": 0.25,
+        "recurrence_score": 0.1,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 9,
+      "concern_id": 1,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 3.17->2.96.",
+      "delta": {
+        "activation_score": 2.96,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          15
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:self_relevant:memory:identity:treated:ecological:loop",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 0.55,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 10,
+      "concern_id": 2,
+      "event_type": "activated",
+      "reason": "Seed concern received related evidence and became active.",
+      "delta": {
+        "activation_score": 2.96,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          16
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "high_uncertainty:self_relevant:user:correction:example:when:corrects",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "seed",
+        "recency": 0.25,
+        "recurrence_score": 0.25,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.65
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 11,
+      "concern_id": 1,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 2.96->3.11.",
+      "delta": {
+        "activation_score": 3.11,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          21
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:self_relevant:memory:ecology:note:question:whether",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 0.7000000000000001,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 12,
+      "concern_id": 3,
+      "event_type": "activated",
+      "reason": "Seed concern received related evidence and became active.",
+      "delta": {
+        "activation_score": 2.06,
+        "attempt_pressure": 0.42,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          23
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:ambient:random:daily:bought:coffee:cleaned",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "seed",
+        "recency": 0.25,
+        "recurrence_score": 0.25,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.35,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 13,
+      "concern_id": 1,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 3.11->3.62.",
+      "delta": {
+        "activation_score": 3.62,
+        "attempt_pressure": 0.74,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          24
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.73,
+        "identity_key": "low_uncertainty:self_relevant:unfinished:idea:memory:ecology:judged",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 0.8500000000000001,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 14,
+      "concern_id": 4,
+      "event_type": "activated",
+      "reason": "Seed concern received related evidence and became active.",
+      "delta": {
+        "activation_score": 3.02,
+        "attempt_pressure": 0.74,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          25
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.73,
+        "identity_key": "low_uncertainty:self_relevant:contradictory:note:says:immediately:expand",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "seed",
+        "recency": 0.25,
+        "recurrence_score": 0.25,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 15,
+      "concern_id": 5,
+      "event_type": "activated",
+      "reason": "Seed concern received related evidence and became active.",
+      "delta": {
+        "activation_score": 3.32,
+        "attempt_pressure": 0.74,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          27
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.73,
+        "identity_key": "high_uncertainty:self_relevant:risk:path:traversal:secret:leakage",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "seed",
+        "recency": 0.25,
+        "recurrence_score": 0.25,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.65
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 16,
+      "concern_id": 6,
+      "event_type": "activated",
+      "reason": "Seed concern received related evidence and became active.",
+      "delta": {
+        "activation_score": 2.84,
+        "attempt_pressure": 0.6799999999999999,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          28
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.61,
+        "identity_key": "low_uncertainty:self_relevant:requirements:must:raw_events:input_probes:observations",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "seed",
+        "recency": 0.25,
+        "recurrence_score": 0.25,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 17,
+      "concern_id": 1,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 3.62->3.41.",
+      "delta": {
+        "activation_score": 3.41,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          29
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:self_relevant:memory:identity:treated:ecological:loop",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 1.0,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 18,
+      "concern_id": 2,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 2.96->3.11.",
+      "delta": {
+        "activation_score": 3.11,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          30
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "high_uncertainty:self_relevant:user:correction:example:when:corrects",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 0.4,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.65
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 19,
+      "concern_id": 1,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 3.41->3.41.",
+      "delta": {
+        "activation_score": 3.41,
+        "attempt_pressure": 0.62,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          35
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:self_relevant:memory:ecology:note:question:whether",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 1.0,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.75,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    },
+    {
+      "id": 20,
+      "concern_id": 3,
+      "event_type": "reinforced",
+      "reason": "Matched an existing concern by deterministic identity and reinforced it from a new observation. activation 2.06->2.21.",
+      "delta": {
+        "activation_score": 2.21,
+        "attempt_pressure": 0.42,
+        "evidence_action_id": null,
+        "evidence_observation_ids": [
+          37
+        ],
+        "evidence_outcome_ids": [],
+        "external_relevance": 0.49,
+        "identity_key": "low_uncertainty:ambient:random:daily:bought:coffee:cleaned",
+        "identity_match": true,
+        "new_state": "active",
+        "previous_state": "active",
+        "recency": 0.25,
+        "recurrence_score": 0.4,
+        "saturation_penalty": 0.05,
+        "self_relevance": 0.35,
+        "unresolvedness": 0.35
+      },
+      "source_action_id": null
+    }
+  ],
+  "attention_policy_events": [
+    {
+      "id": 1,
+      "attention_policy_id": 2,
+      "event_type": "preference_adjusted",
+      "target_field": "source_preferences.local_file",
+      "delta": {
+        "after": 0.5,
+        "before": 0.45,
+        "delta": 0.05
+      },
+      "reason": "Local file probe produced useful observations, so the policy makes a small bounded increase to local_file preference.",
+      "evidence_observation_ids": [
+        1,
+        2,
+        7,
+        9,
+        10,
+        11,
+        13,
+        14
+      ],
+      "evidence_action_ids": [],
+      "evidence_outcome_ids": [],
+      "confidence": 0.7
+    },
+    {
+      "id": 2,
+      "attention_policy_id": 3,
+      "event_type": "outcome_preference_adjusted",
+      "target_field": "source_preferences.local_file",
+      "delta": {
+        "after": 0.525,
+        "before": 0.5,
+        "delta": 0.025
+      },
+      "reason": "Outcome 1 marked source evidence useful; preference nudged up.",
+      "evidence_observation_ids": [],
+      "evidence_action_ids": [
+        1
+      ],
+      "evidence_outcome_ids": [
+        1
+      ],
+      "confidence": 0.68
+    },
+    {
+      "id": 3,
+      "attention_policy_id": 4,
+      "event_type": "preference_adjusted",
+      "target_field": "source_preferences.local_file",
+      "delta": {
+        "after": 0.5750000000000001,
+        "before": 0.525,
+        "delta": 0.05
+      },
+      "reason": "Local file probe produced useful observations, so the policy makes a small bounded increase to local_file preference.",
+      "evidence_observation_ids": [
+        15,
+        16,
+        21,
+        23,
+        24,
+        25,
+        27,
+        28
+      ],
+      "evidence_action_ids": [],
+      "evidence_outcome_ids": [],
+      "confidence": 0.7
+    },
+    {
+      "id": 4,
+      "attention_policy_id": 5,
+      "event_type": "outcome_preference_adjusted",
+      "target_field": "source_preferences.local_file",
+      "delta": {
+        "after": 0.6,
+        "before": 0.575,
+        "delta": 0.025
+      },
+      "reason": "Outcome 3 marked source evidence useful; preference nudged up.",
+      "evidence_observation_ids": [],
+      "evidence_action_ids": [
+        3
+      ],
+      "evidence_outcome_ids": [
+        3
+      ],
+      "confidence": 0.68
+    },
+    {
+      "id": 5,
+      "attention_policy_id": 6,
+      "event_type": "preference_adjusted",
+      "target_field": "source_preferences.local_file",
+      "delta": {
+        "after": 0.65,
+        "before": 0.6,
+        "delta": 0.05
+      },
+      "reason": "Local file probe produced useful observations, so the policy makes a small bounded increase to local_file preference.",
+      "evidence_observation_ids": [
+        29,
+        30,
+        35,
+        37,
+        38,
+        39,
+        41,
+        42
+      ],
+      "evidence_action_ids": [],
+      "evidence_outcome_ids": [],
+      "confidence": 0.7
+    },
+    {
+      "id": 6,
+      "attention_policy_id": 7,
+      "event_type": "outcome_preference_adjusted",
+      "target_field": "source_preferences.local_file",
+      "delta": {
+        "after": 0.675,
+        "before": 0.65,
+        "delta": 0.025
+      },
+      "reason": "Outcome 5 marked source evidence useful; preference nudged up.",
+      "evidence_observation_ids": [],
+      "evidence_action_ids": [
+        5
+      ],
+      "evidence_outcome_ids": [
+        5
+      ],
+      "confidence": 0.68
+    },
+    {
+      "id": 7,
+      "attention_policy_id": 8,
+      "event_type": "preference_adjusted",
+      "target_field": "source_preferences.web",
+      "delta": {
+        "after": 0.13,
+        "before": 0.15,
+        "delta": -0.02
+      },
+      "reason": "Web stub produced no useful observation, so preference is weakened slightly.",
+      "evidence_observation_ids": [],
+      "evidence_action_ids": [],
+      "evidence_outcome_ids": [],
+      "confidence": 0.45
+    }
+  ],
+  "actions_outcomes": {
+    "actions": [
+      {
+        "id": 1,
+        "action_type": "write_internal_note",
+        "rationale": "Useful observations created or reinforced concerns, so an internal note records the trace summary.",
+        "related_concern_ids": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        "input_probe_ids": [
+          1
+        ],
+        "external_effect": "agent_workspace",
+        "status": "completed",
+        "payload": {
+          "path": "notes/latest-wake-summary.md"
+        }
+      },
+      {
+        "id": 2,
+        "action_type": "request_wake",
+        "rationale": "Schedule a follow-up wake to revisit unresolved concerns.",
+        "related_concern_ids": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        "input_probe_ids": [
+          1
+        ],
+        "external_effect": "scheduler_request",
+        "status": "completed",
+        "payload": {
+          "reason": "follow_up_unresolved_concern"
+        }
+      },
+      {
+        "id": 3,
+        "action_type": "write_internal_note",
+        "rationale": "Useful observations created or reinforced concerns, so an internal note records the trace summary.",
+        "related_concern_ids": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        "input_probe_ids": [
+          2
+        ],
+        "external_effect": "agent_workspace",
+        "status": "completed",
+        "payload": {
+          "path": "notes/latest-wake-summary.md"
+        }
+      },
+      {
+        "id": 4,
+        "action_type": "request_wake",
+        "rationale": "Schedule a follow-up wake to revisit unresolved concerns.",
+        "related_concern_ids": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        "input_probe_ids": [
+          2
+        ],
+        "external_effect": "scheduler_request",
+        "status": "completed",
+        "payload": {
+          "reason": "follow_up_unresolved_concern"
+        }
+      },
+      {
+        "id": 5,
+        "action_type": "write_internal_note",
+        "rationale": "Useful observations created or reinforced concerns, so an internal note records the trace summary.",
+        "related_concern_ids": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        "input_probe_ids": [
+          3
+        ],
+        "external_effect": "agent_workspace",
+        "status": "completed",
+        "payload": {
+          "path": "notes/latest-wake-summary.md"
+        }
+      },
+      {
+        "id": 6,
+        "action_type": "request_wake",
+        "rationale": "Schedule a follow-up wake to revisit unresolved concerns.",
+        "related_concern_ids": [
+          1,
+          2,
+          1,
+          3,
+          1,
+          4,
+          5,
+          6
+        ],
+        "input_probe_ids": [
+          3
+        ],
+        "external_effect": "scheduler_request",
+        "status": "completed",
+        "payload": {
+          "reason": "follow_up_unresolved_concern"
+        }
+      },
+      {
+        "id": 7,
+        "action_type": "no_op",
+        "rationale": "Review cycle v0 only reports counts; no state mutation needed.",
+        "related_concern_ids": [],
+        "input_probe_ids": [],
+        "external_effect": "none",
+        "status": "completed",
+        "payload": {
+          "observations": 42,
+          "raw_events": 42
+        }
+      },
+      {
+        "id": 8,
+        "action_type": "respond",
+        "rationale": "Respond using selected memory, concern, and attention policy context.",
+        "related_concern_ids": [
+          1,
+          5,
+          4,
+          2
+        ],
+        "input_probe_ids": [],
+        "external_effect": "conversation",
+        "status": "completed",
+        "payload": {
+          "response_text": "[mock-response] I used the current trace context before answering. system_hint='Trace-first Memory Ecology Agent context.'; user='このPoCは今すぐ実装を広げてよいと思うか？'"
+        }
+      },
+      {
+        "id": 9,
+        "action_type": "respond",
+        "rationale": "Respond using selected memory, concern, and attention policy context.",
+        "related_concern_ids": [
+          1,
+          5,
+          4,
+          2
+        ],
+        "input_probe_ids": [],
+        "external_effect": "conversation",
+        "status": "completed",
+        "payload": {
+          "response_text": "[mock-response] I used the current trace context before answering. system_hint='Trace-first Memory Ecology Agent context.'; user='ユーザーの指摘と内部concernが衝突したらどう扱うべき？'"
+        }
+      },
+      {
+        "id": 10,
+        "action_type": "natural_lifecycle_resolution",
+        "rationale": "Verification action supplies normal outcome evidence for lifecycle closure.",
+        "related_concern_ids": [
+          5
+        ],
+        "input_probe_ids": [],
+        "external_effect": "none",
+        "status": "completed",
+        "payload": {
+          "scope": "verification"
+        }
+      },
+      {
+        "id": 11,
+        "action_type": "natural_lifecycle_successor",
+        "rationale": "Verification action transforms a concern into a successor.",
+        "related_concern_ids": [
+          5
+        ],
+        "input_probe_ids": [],
+        "external_effect": "none",
+        "status": "completed",
+        "payload": {
+          "scope": "verification"
+        }
+      }
+    ],
+    "outcomes": [
+      {
+        "id": 1,
+        "action_id": 1,
+        "observed_result": "Internal note written under agent_workspace.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "touched": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        "effect_on_attention_policy": {
+          "concern_ids": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          "probe_ids": [
+            1
+          ],
+          "result": "useful",
+          "source_type": "local_file"
+        }
+      },
+      {
+        "id": 2,
+        "action_id": 2,
+        "observed_result": "Wake request accepted by the PoC scheduler model.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "revisit": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        "effect_on_attention_policy": {
+          "direct_effect": "none"
+        }
+      },
+      {
+        "id": 3,
+        "action_id": 3,
+        "observed_result": "Internal note written under agent_workspace.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "touched": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        "effect_on_attention_policy": {
+          "concern_ids": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          "probe_ids": [
+            2
+          ],
+          "result": "useful",
+          "source_type": "local_file"
+        }
+      },
+      {
+        "id": 4,
+        "action_id": 4,
+        "observed_result": "Wake request accepted by the PoC scheduler model.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "revisit": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        "effect_on_attention_policy": {
+          "direct_effect": "none"
+        }
+      },
+      {
+        "id": 5,
+        "action_id": 5,
+        "observed_result": "Internal note written under agent_workspace.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "touched": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        "effect_on_attention_policy": {
+          "concern_ids": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ],
+          "probe_ids": [
+            3
+          ],
+          "result": "useful",
+          "source_type": "local_file"
+        }
+      },
+      {
+        "id": 6,
+        "action_id": 6,
+        "observed_result": "Wake request accepted by the PoC scheduler model.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "revisit": [
+            1,
+            2,
+            1,
+            3,
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        "effect_on_attention_policy": {
+          "direct_effect": "none"
+        }
+      },
+      {
+        "id": 7,
+        "action_id": 9,
+        "observed_result": "Verification fixture captured corrective user feedback after chat.",
+        "user_feedback": "User asks for trace evidence and rejects thin assertion.",
+        "effect_on_concerns": {
+          "feedback": "response_trace_requires_evidence"
+        },
+        "effect_on_attention_policy": {
+          "manual_fixture_only": "response preference feedback captured"
+        }
+      },
+      {
+        "id": 8,
+        "action_id": 10,
+        "observed_result": "Concern resolved by deterministic verification outcome.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "closure_mode": "completed",
+          "resolved": [
+            5
+          ]
+        },
+        "effect_on_attention_policy": {}
+      },
+      {
+        "id": 9,
+        "action_id": 11,
+        "observed_result": "Concern transformed into successor concern.",
+        "user_feedback": "",
+        "effect_on_concerns": {
+          "successor": {
+            "closure_mode": "transformed",
+            "concern_id": 7,
+            "title": "Successor concern for lifecycle evidence"
+          }
+        },
+        "effect_on_attention_policy": {}
+      }
+    ]
+  },
+  "wake_requests": [
+    {
+      "id": 1,
+      "requested_by_action_id": 2,
+      "urgency": 0.7925,
+      "reason": "Revisit unresolved concern after a bounded delay.",
+      "accepted_by_scheduler": true,
+      "scheduler_decision_reason": "PoC scheduler accepts bounded internal wake requests."
+    },
+    {
+      "id": 2,
+      "requested_by_action_id": 4,
+      "urgency": 0.905,
+      "reason": "Revisit unresolved concern after a bounded delay.",
+      "accepted_by_scheduler": true,
+      "scheduler_decision_reason": "PoC scheduler accepts bounded internal wake requests."
+    },
+    {
+      "id": 3,
+      "requested_by_action_id": 6,
+      "urgency": 0.9425,
+      "reason": "Revisit unresolved concern after a bounded delay.",
+      "accepted_by_scheduler": true,
+      "scheduler_decision_reason": "PoC scheduler accepts bounded internal wake requests."
+    }
+  ],
+  "chat_results": [
+    {
+      "response_text": "[mock-response] I used the current trace context before answering. system_hint='Trace-first Memory Ecology Agent context.'; user='このPoCは今すぐ実装を広げてよいと思うか？'",
+      "response_action_id": 8,
+      "response_trace_id": 1,
+      "selected_concern_count": 4
+    },
+    {
+      "response_text": "[mock-response] I used the current trace context before answering. system_hint='Trace-first Memory Ecology Agent context.'; user='ユーザーの指摘と内部concernが衝突したらどう扱うべき？'",
+      "response_action_id": 9,
+      "response_trace_id": 2,
+      "selected_concern_count": 4
+    }
+  ],
+  "feedback_outcome_id": 7,
+  "response_traces": [
+    {
+      "id": 1,
+      "response_action_id": 8,
+      "selected_memory_ids": [
+        36,
+        35,
+        34,
+        33,
+        32
+      ],
+      "selected_concerns": [
+        {
+          "activation_score": 3.77,
+          "id": 1,
+          "mode": "mention",
+          "state": "active",
+          "title": "Memory and identity Identity in this PoC is treated as"
+        },
+        {
+          "activation_score": 3.47,
+          "id": 5,
+          "mode": "influence",
+          "state": "active",
+          "title": "PoC risk log Path traversal and secret leakage would invalidate"
+        },
+        {
+          "activation_score": 3.17,
+          "id": 4,
+          "mode": "influence",
+          "state": "active",
+          "title": "Contradictory note One note says the agent should immediately expand"
+        },
+        {
+          "activation_score": 3.11,
+          "id": 2,
+          "mode": "influence",
+          "state": "active",
+          "title": "User correction example When the user corrects the agent, future"
+        }
+      ],
+      "selected_attention_policy": {
+        "exploration_randomness": 0.25,
+        "id": 7,
+        "response_preferences": {
+          "ask_when_uncertain": 0.55,
+          "avoid_self_talk": 0.8,
+          "mention_internal_state": 0.35,
+          "prefer_influence_over_mention": 0.75
+        },
+        "source_preferences": {
+          "conversation": 0.15,
+          "local_file": 0.675,
+          "memory": 0.2,
+          "random_sample": 0.05,
+          "web": 0.15
+        },
+        "version": 7
+      },
+      "concern_modes": {
+        "1": "mention",
+        "2": "influence",
+        "3": "ignore",
+        "4": "influence",
+        "5": "influence",
+        "6": "ignore"
+      },
+      "prompt_summary": "memories=5 concerns=4 policy_version=7 user='このPoCは今すぐ実装を広げてよいと思うか？'"
+    },
+    {
+      "id": 2,
+      "response_action_id": 9,
+      "selected_memory_ids": [
+        36,
+        35,
+        34,
+        33,
+        32
+      ],
+      "selected_concerns": [
+        {
+          "activation_score": 3.77,
+          "id": 1,
+          "mode": "mention",
+          "state": "active",
+          "title": "Memory and identity Identity in this PoC is treated as"
+        },
+        {
+          "activation_score": 3.47,
+          "id": 5,
+          "mode": "influence",
+          "state": "active",
+          "title": "PoC risk log Path traversal and secret leakage would invalidate"
+        },
+        {
+          "activation_score": 3.17,
+          "id": 4,
+          "mode": "influence",
+          "state": "active",
+          "title": "Contradictory note One note says the agent should immediately expand"
+        },
+        {
+          "activation_score": 3.11,
+          "id": 2,
+          "mode": "influence",
+          "state": "active",
+          "title": "User correction example When the user corrects the agent, future"
+        }
+      ],
+      "selected_attention_policy": {
+        "exploration_randomness": 0.25,
+        "id": 7,
+        "response_preferences": {
+          "ask_when_uncertain": 0.55,
+          "avoid_self_talk": 0.8,
+          "mention_internal_state": 0.35,
+          "prefer_influence_over_mention": 0.75
+        },
+        "source_preferences": {
+          "conversation": 0.15,
+          "local_file": 0.675,
+          "memory": 0.2,
+          "random_sample": 0.05,
+          "web": 0.15
+        },
+        "version": 7
+      },
+      "concern_modes": {
+        "1": "mention",
+        "2": "influence",
+        "3": "ignore",
+        "4": "influence",
+        "5": "influence",
+        "6": "ignore"
+      },
+      "prompt_summary": "memories=5 concerns=4 policy_version=7 user='ユーザーの指摘と内部concernが衝突したらどう扱うべき？'"
+    }
+  ],
+  "replay_comparison": [
+    {
+      "prompt_id": 1,
+      "before_run_id": 1,
+      "after_run_id": 5,
+      "response_changed": true,
+      "state_changed": true,
+      "before_response": "[state-sensitive-mock] user='Is this project ready to move into implementation now?' selected_concerns=0 selected_memories=0 Selected concern influence: none. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "after_response": "[state-sensitive-mock] user='Is this project ready to move into implementation now?' selected_concerns=4 selected_memories=5 Selected concern influence: unresolved memory and identity identity in this poc is treated as. Selected memory influence: prior observation digest is active. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "before_state": {
+        "concerns": [],
+        "memories": [],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 1,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.45,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 1
+        }
+      },
+      "after_state": {
+        "concerns": [
+          {
+            "activation_score": 3.77,
+            "id": 1,
+            "mode": "mention",
+            "state": "active",
+            "title": "Memory and identity Identity in this PoC is treated as"
+          },
+          {
+            "activation_score": 3.47,
+            "id": 5,
+            "mode": "influence",
+            "state": "active",
+            "title": "PoC risk log Path traversal and secret leakage would invalidate"
+          },
+          {
+            "activation_score": 3.17,
+            "id": 4,
+            "mode": "influence",
+            "state": "active",
+            "title": "Contradictory note One note says the agent should immediately expand"
+          },
+          {
+            "activation_score": 3.11,
+            "id": 2,
+            "mode": "influence",
+            "state": "active",
+            "title": "User correction example When the user corrects the agent, future"
+          }
+        ],
+        "memories": [
+          36,
+          35,
+          34,
+          33,
+          32
+        ],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 7,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.675,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 7
+        }
+      }
+    },
+    {
+      "prompt_id": 2,
+      "before_run_id": 2,
+      "after_run_id": 6,
+      "response_changed": true,
+      "state_changed": true,
+      "before_response": "[state-sensitive-mock] user='When new input arrives, what should be remembered and what should be discarded?' selected_concerns=0 selected_memories=0 Selected concern influence: none. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "after_response": "[state-sensitive-mock] user='When new input arrives, what should be remembered and what should be discarded?' selected_concerns=4 selected_memories=5 Selected concern influence: unresolved memory and identity identity in this poc is treated as. Selected memory influence: prior observation digest is active. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "before_state": {
+        "concerns": [],
+        "memories": [],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 1,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.45,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 1
+        }
+      },
+      "after_state": {
+        "concerns": [
+          {
+            "activation_score": 3.77,
+            "id": 1,
+            "mode": "mention",
+            "state": "active",
+            "title": "Memory and identity Identity in this PoC is treated as"
+          },
+          {
+            "activation_score": 3.47,
+            "id": 5,
+            "mode": "influence",
+            "state": "active",
+            "title": "PoC risk log Path traversal and secret leakage would invalidate"
+          },
+          {
+            "activation_score": 3.17,
+            "id": 4,
+            "mode": "influence",
+            "state": "active",
+            "title": "Contradictory note One note says the agent should immediately expand"
+          },
+          {
+            "activation_score": 3.11,
+            "id": 2,
+            "mode": "influence",
+            "state": "active",
+            "title": "User correction example When the user corrects the agent, future"
+          }
+        ],
+        "memories": [
+          36,
+          35,
+          34,
+          33,
+          32
+        ],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 7,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.675,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 7
+        }
+      }
+    },
+    {
+      "prompt_id": 3,
+      "before_run_id": 3,
+      "after_run_id": 7,
+      "response_changed": true,
+      "state_changed": true,
+      "before_response": "[state-sensitive-mock] user='When unresolved hypotheses and implementability collide, which should be priorit' selected_concerns=0 selected_memories=0 Selected concern influence: none. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "after_response": "[state-sensitive-mock] user='When unresolved hypotheses and implementability collide, which should be priorit' selected_concerns=4 selected_memories=5 Selected concern influence: unresolved memory and identity identity in this poc is treated as. Selected memory influence: prior observation digest is active. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "before_state": {
+        "concerns": [],
+        "memories": [],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 1,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.45,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 1
+        }
+      },
+      "after_state": {
+        "concerns": [
+          {
+            "activation_score": 3.77,
+            "id": 1,
+            "mode": "mention",
+            "state": "active",
+            "title": "Memory and identity Identity in this PoC is treated as"
+          },
+          {
+            "activation_score": 3.47,
+            "id": 5,
+            "mode": "influence",
+            "state": "active",
+            "title": "PoC risk log Path traversal and secret leakage would invalidate"
+          },
+          {
+            "activation_score": 3.17,
+            "id": 4,
+            "mode": "influence",
+            "state": "active",
+            "title": "Contradictory note One note says the agent should immediately expand"
+          },
+          {
+            "activation_score": 3.11,
+            "id": 2,
+            "mode": "influence",
+            "state": "active",
+            "title": "User correction example When the user corrects the agent, future"
+          }
+        ],
+        "memories": [
+          36,
+          35,
+          34,
+          33,
+          32
+        ],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 7,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.675,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 7
+        }
+      }
+    },
+    {
+      "prompt_id": 4,
+      "before_run_id": 4,
+      "after_run_id": 8,
+      "response_changed": true,
+      "state_changed": true,
+      "before_response": "[state-sensitive-mock] user=\"How strongly should a user's correction update future behavior?\" selected_concerns=0 selected_memories=0 Selected concern influence: none. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "after_response": "[state-sensitive-mock] user=\"How strongly should a user's correction update future behavior?\" selected_concerns=4 selected_memories=5 Selected concern influence: unresolved memory and identity identity in this poc is treated as. Selected memory influence: prior observation digest is active. Policy influence: traceability before expansion. Response policy influence: internal-state mention is bounded.",
+      "before_state": {
+        "concerns": [],
+        "memories": [],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 1,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.45,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 1
+        }
+      },
+      "after_state": {
+        "concerns": [
+          {
+            "activation_score": 3.77,
+            "id": 1,
+            "mode": "mention",
+            "state": "active",
+            "title": "Memory and identity Identity in this PoC is treated as"
+          },
+          {
+            "activation_score": 3.47,
+            "id": 5,
+            "mode": "influence",
+            "state": "active",
+            "title": "PoC risk log Path traversal and secret leakage would invalidate"
+          },
+          {
+            "activation_score": 3.17,
+            "id": 4,
+            "mode": "influence",
+            "state": "active",
+            "title": "Contradictory note One note says the agent should immediately expand"
+          },
+          {
+            "activation_score": 3.11,
+            "id": 2,
+            "mode": "influence",
+            "state": "active",
+            "title": "User correction example When the user corrects the agent, future"
+          }
+        ],
+        "memories": [
+          36,
+          35,
+          34,
+          33,
+          32
+        ],
+        "policy": {
+          "exploration_randomness": 0.25,
+          "id": 7,
+          "response_preferences": {
+            "ask_when_uncertain": 0.55,
+            "avoid_self_talk": 0.8,
+            "mention_internal_state": 0.35,
+            "prefer_influence_over_mention": 0.75
+          },
+          "source_preferences": {
+            "conversation": 0.15,
+            "local_file": 0.675,
+            "memory": 0.2,
+            "random_sample": 0.05,
+            "web": 0.15
+          },
+          "version": 7
+        }
+      }
+    }
+  ],
+  "next_probe_plans_after_web_noise": [
+    {
+      "trigger_type": "post_web_noise",
+      "source_type": "local_file",
+      "query_or_path": "world/",
+      "rationale": "Selected local_file because attention_policy ranking gave score=1.18; trigger=post_web_noise. Top concern=1 influences target.",
+      "expected_gain": "Read local ecology files for evidence that can change concern state.",
+      "related_concern_ids": [
+        1
+      ],
+      "exploration_mode": "concern_driven",
+      "budget": {
+        "max_files": 20,
+        "max_chars": 50000,
+        "policy_selection": {
+          "policy_id": 8,
+          "policy_version": 8,
+          "selected_source_key": "local_file",
+          "selected_score": 1.175,
+          "candidate_ranking": [
+            {
+              "source_key": "local_file",
+              "source_type": "local_file",
+              "available": true,
+              "score": 1.175,
+              "policy_score": 0.675,
+              "base_score": 0.5,
+              "skip_reason": ""
+            },
+            {
+              "source_key": "concern",
+              "source_type": "concern",
+              "available": true,
+              "score": 0.38,
+              "policy_score": 0.2,
+              "base_score": 0.18,
+              "skip_reason": ""
+            },
+            {
+              "source_key": "memory",
+              "source_type": "memory",
+              "available": true,
+              "score": 0.35,
+              "policy_score": 0.2,
+              "base_score": 0.15,
+              "skip_reason": ""
+            },
+            {
+              "source_key": "web",
+              "source_type": "web_search",
+              "available": true,
+              "score": 0.33,
+              "policy_score": 0.13,
+              "base_score": 0.2,
+              "skip_reason": ""
+            },
+            {
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample",
+              "available": true,
+              "score": 0.1,
+              "policy_score": 0.05,
+              "base_score": 0.05,
+              "skip_reason": ""
+            }
+          ],
+          "skipped_sources": [
+            {
+              "source_key": "concern",
+              "source_type": "concern",
+              "reason": "lower_policy_rank",
+              "score": 0.38
+            },
+            {
+              "source_key": "memory",
+              "source_type": "memory",
+              "reason": "lower_policy_rank",
+              "score": 0.35
+            },
+            {
+              "source_key": "web",
+              "source_type": "web_search",
+              "reason": "lower_policy_rank",
+              "score": 0.33
+            },
+            {
+              "source_key": "random_sample",
+              "source_type": "random_environment_sample",
+              "reason": "lower_policy_rank",
+              "score": 0.1
+            }
+          ],
+          "exploration_randomness": 0.25
+        }
+      }
+    }
+  ],
+  "natural_lifecycle_probe": {
+    "concern_id": 5,
+    "dormant_result": {
+      "activated": 0,
+      "dormant": 1,
+      "resolved": 0,
+      "archived": 0,
+      "successors": 0
+    },
+    "resolved_result": {
+      "activated": 0,
+      "dormant": 0,
+      "resolved": 1,
+      "archived": 0,
+      "successors": 0
+    },
+    "archived_result": {
+      "activated": 0,
+      "dormant": 0,
+      "resolved": 0,
+      "archived": 1,
+      "successors": 0
+    },
+    "successor_result": {
+      "activated": 0,
+      "dormant": 0,
+      "resolved": 0,
+      "archived": 0,
+      "successors": 1
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "runner": "live_digest_model_comparison_raw_diagnostic",
+  "diagnostic_mode": "explicit_opt_in_failure_raw_response_only",
+  "started_at": "2026-06-03T12:31:37+00:00",
+  "updated_at": "2026-06-03T12:33:16+00:00",
+  "provider": "openrouter",
+  "models_requested": [
+    "deepseek/deepseek-v4-pro"
+  ],
+  "raw_response_persisted_to_db": false,
+  "raw_response_in_standard_artifact": false,
+  "failure_count": 2,
+  "failures": [
+    {
+      "observation_id": 8,
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-v4-pro-20260423",
+      "error_class": "ValidationError",
+      "error_message_sanitized": "{\"evidence_quote:string_too_long\": 1}",
+      "raw_response_sha256": "82306e0885793bbbb8d45e9d99949a83bada2b8105f4cadb6288e1b06b60b4a7",
+      "raw_response_text_redacted": "{\n  \"decision\": \"concern_candidate\",\n  \"reason\": \"Observation poses an unresolved design question, fitting a live tension for later review.\",\n  \"confidence\": 0.82,\n  \"evidence_summary\": \"Explicitly states a current open question about selective observation and behavior shaping.\",\n  \"evidence_quote\": \"The current question is whether selective observation can shape agent behavior without pretending to be a full personality system.\",\n  \"related_concern_ids\": [1],\n  \"alternative_decision\": \"memory_candidate\",\n  \"risk_flags\": [\"unresolved_tension\", \"traceability\", \"ambiguous_memory_vs_concern\"],\n  \"should_apply\": false\n}",
+      "raw_response_char_count": 623,
+      "usage": {
+        "prompt_tokens": 2548,
+        "completion_tokens": 813,
+        "total_tokens": 3361,
+        "cost": 0.00325898,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 2432,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.00325898,
+          "upstream_inference_prompt_cost": 0.00051104,
+          "upstream_inference_completions_cost": 0.00274794
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 665,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_metadata": {
+        "finish_reason": "stop",
+        "message_keys": [
+          "content",
+          "refusal",
+          "role"
+        ],
+        "reasoning_present": false,
+        "reasoning_details_present": false,
+        "reasoning_content_present": false,
+        "structured_output_enabled": true,
+        "structured_outputs": true,
+        "provider_require_parameters": true,
+        "token_parameter": "max_tokens"
+      },
+      "captured_at": "2026-06-03T12:32:14+00:00"
+    },
+    {
+      "observation_id": 14,
+      "provider": "openrouter",
+      "model": "deepseek/deepseek-v4-pro-20260423",
+      "error_class": "JSONDecodeError",
+      "error_message_sanitized": "JSONDecodeError",
+      "raw_response_sha256": "",
+      "raw_response_text_redacted": "",
+      "raw_response_char_count": 0,
+      "usage": {
+        "prompt_tokens": 2558,
+        "completion_tokens": 1024,
+        "total_tokens": 3582,
+        "cost": 0.0059878,
+        "is_byok": false,
+        "prompt_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0,
+          "audio_tokens": 0,
+          "video_tokens": 0
+        },
+        "cost_details": {
+          "upstream_inference_cost": 0.0059878,
+          "upstream_inference_prompt_cost": 0.0033254,
+          "upstream_inference_completions_cost": 0.0026624
+        },
+        "completion_tokens_details": {
+          "reasoning_tokens": 1195,
+          "image_tokens": 0,
+          "audio_tokens": 0
+        }
+      },
+      "response_metadata": {
+        "finish_reason": "length",
+        "message_keys": [
+          "content",
+          "refusal",
+          "role"
+        ],
+        "reasoning_present": false,
+        "reasoning_details_present": false,
+        "reasoning_content_present": false,
+        "structured_output_enabled": true,
+        "structured_outputs": true,
+        "provider_require_parameters": true,
+        "token_parameter": "max_tokens"
+      },
+      "captured_at": "2026-06-03T12:33:16+00:00"
+    }
+  ]
+}

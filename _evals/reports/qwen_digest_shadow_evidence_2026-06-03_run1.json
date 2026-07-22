@@ -1,0 +1,312 @@
+{
+  "runner": "live_digest_model_comparison",
+  "started_at": "2026-06-02T16:24:33+00:00",
+  "updated_at": "2026-06-02T16:26:40+00:00",
+  "provider": "openrouter",
+  "models_requested": [
+    "qwen/qwen3.6-plus"
+  ],
+  "safe_batch_size": 3,
+  "concurrency": 3,
+  "observation_concurrency": 4,
+  "fail_fast_on_safe_batch": false,
+  "fixture_world": "/home/penne/dev/active/memory_ecology_agent/_evals/fixtures/memory_ecology_sample_world/world",
+  "prompt_version": "digest_decision_llm.v3",
+  "raw_provider_response_persisted": false,
+  "status_counts": {
+    "completed": 1
+  },
+  "failure_cause_counts": {
+    "schema_validation": 4
+  },
+  "observation_partials": [
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 3,
+      "status": "completed",
+      "elapsed_seconds": 24.1,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:24:58+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 4,
+      "status": "completed",
+      "elapsed_seconds": 30.9,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:04+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 1,
+      "status": "completed",
+      "elapsed_seconds": 31.7,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:05+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 2,
+      "status": "completed",
+      "elapsed_seconds": 43.1,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:17+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 5,
+      "status": "completed",
+      "elapsed_seconds": 23.0,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:21+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 6,
+      "status": "completed",
+      "elapsed_seconds": 22.9,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:27+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 7,
+      "status": "completed",
+      "elapsed_seconds": 25.2,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:30+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 8,
+      "status": "failed",
+      "elapsed_seconds": 20.9,
+      "schema_valid": false,
+      "fallback_used": true,
+      "failure_cause": "schema_validation",
+      "error_class": "ValidationError",
+      "completed_at": "2026-06-02T16:25:37+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 9,
+      "status": "completed",
+      "elapsed_seconds": 24.7,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:45+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 11,
+      "status": "completed",
+      "elapsed_seconds": 18.6,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:49+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 10,
+      "status": "completed",
+      "elapsed_seconds": 28.1,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:25:55+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 13,
+      "status": "failed",
+      "elapsed_seconds": 21.9,
+      "schema_valid": false,
+      "fallback_used": true,
+      "failure_cause": "schema_validation",
+      "error_class": "ValidationError",
+      "completed_at": "2026-06-02T16:26:07+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 12,
+      "status": "completed",
+      "elapsed_seconds": 31.9,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:26:09+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 14,
+      "status": "completed",
+      "elapsed_seconds": 29.0,
+      "schema_valid": true,
+      "fallback_used": false,
+      "failure_cause": "",
+      "error_class": "",
+      "completed_at": "2026-06-02T16:26:18+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 15,
+      "status": "failed",
+      "elapsed_seconds": 35.1,
+      "schema_valid": false,
+      "fallback_used": true,
+      "failure_cause": "schema_validation",
+      "error_class": "ValidationError",
+      "completed_at": "2026-06-02T16:26:30+00:00"
+    },
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "observation_id": 16,
+      "status": "failed",
+      "elapsed_seconds": 32.9,
+      "schema_valid": false,
+      "fallback_used": true,
+      "failure_cause": "schema_validation",
+      "error_class": "ValidationError",
+      "completed_at": "2026-06-02T16:26:40+00:00"
+    }
+  ],
+  "results": [
+    {
+      "model": "qwen/qwen3.6-plus",
+      "provider": "openrouter",
+      "status": "completed",
+      "phase": "safe_batch",
+      "elapsed_seconds": 126.6,
+      "temp_root": "/tmp/digest-proposal-eval-6q8upqbv",
+      "metrics": {
+        "total_observations": 16,
+        "total_deterministic_decisions": 16,
+        "total_llm_proposals": 16,
+        "schema_valid_proposals": 12,
+        "rejected_or_fallback_proposals": 4,
+        "malformed_json_count": 0,
+        "validation_error_count": 4,
+        "provider_error_count": 0,
+        "agreement_count": 7,
+        "disagreement_count": 5,
+        "agreement_rate": 0.583,
+        "llm_proposed_distribution": {
+          "concern_candidate": 1,
+          "memory_candidate": 6,
+          "discard": 4,
+          "action_candidate": 1,
+          "no_op": 0
+        },
+        "final_decision_distribution": {
+          "concern_candidate": 8,
+          "memory_candidate": 5,
+          "discard": 3,
+          "action_candidate": 0,
+          "no_op": 0
+        },
+        "action_candidate_count": 1,
+        "memory_vs_concern_disagreement_count": 2,
+        "discard_vs_memory_disagreement_count": 1,
+        "llm_concern_final_discard": 0,
+        "llm_discard_final_concern_or_memory": 2,
+        "average_confidence_by_decision": {
+          "action_candidate": 0.62,
+          "concern_candidate": 0.78,
+          "discard": 0.848,
+          "memory_candidate": 0.798
+        },
+        "confidence_distribution": {
+          "0.55-0.74": 1,
+          "0.75-0.89": 10,
+          "0.90-1.00": 1
+        },
+        "risk_flags_distribution": {
+          "ambiguous_discard_vs_memory": 3,
+          "ambiguous_memory_vs_concern": 3,
+          "low_signal": 6,
+          "manual_follow_up": 1,
+          "possible_over_action": 1,
+          "project_requirement": 1,
+          "repetition": 1,
+          "self_model_boundary": 2,
+          "stable_fact": 5,
+          "unresolved_tension": 1,
+          "user_feedback": 2
+        },
+        "model_should_apply_true_count": 0,
+        "normalized_should_apply_true_count": 1,
+        "normalization_reason_distribution": {
+          "allowed_discard": 1,
+          "confidence_below_threshold": 9,
+          "decision_not_auto_applicable": 2
+        },
+        "unknown_concern_id_count": 0,
+        "raw_response_persisted_count": 0
+      },
+      "failure_causes": {
+        "schema_validation": 4
+      },
+      "safety_checks": {
+        "raw_response_not_persisted": true,
+        "final_digest_decisions_exist": true,
+        "web_search_disabled": true,
+        "discord_disabled": true,
+        "proposal_only_shadow": true,
+        "wake_cycle_completed": true
+      },
+      "error_class": "",
+      "error_message": "",
+      "started_at": "2026-06-02T16:24:33+00:00",
+      "completed_at": "2026-06-02T16:26:40+00:00",
+      "partial_flushes": [
+        {
+          "count": 16,
+          "first_partial_elapsed_seconds": 24.1
+        }
+      ]
+    }
+  ]
+}
