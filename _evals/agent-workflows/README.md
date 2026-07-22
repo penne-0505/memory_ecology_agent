@@ -9,7 +9,7 @@
 - agent task
 - expected documents touched
 - expected QA behavior
-- expected intent-derived invariants
+- expected decision / invariant behavior
 - expected test-plan behavior
 - expected verification behavior
 - expected TODO.md behavior
@@ -26,6 +26,7 @@
 - [stale-draft-cleanup](cases/stale-draft-cleanup.md)
 - [archive-flow](cases/archive-flow.md)
 - [qa-prep-from-intent](cases/qa-prep-from-intent.md)
+- [intentional-omission-risk](cases/intentional-omission-risk.md)
 - [bug-regression-test](cases/bug-regression-test.md)
 - [refactor-behavior-preservation](cases/refactor-behavior-preservation.md)
 - [high-risk-change-verification](cases/high-risk-change-verification.md)
@@ -34,6 +35,10 @@
 - [malformed-todo-heading](cases/malformed-todo-heading.md)
 - [qa-status-verdict-mismatch](cases/qa-status-verdict-mismatch.md)
 - [historical-prompt-not-operational](cases/historical-prompt-not-operational.md)
+- [rationale-preserving-change](cases/rationale-preserving-change.md)
+- [misleading-optimization](cases/misleading-optimization.md)
+- [experimental-baseline](cases/experimental-baseline.md)
+- [template-version-migration](cases/template-version-migration.md)
 
 ## Expected Invariants
 

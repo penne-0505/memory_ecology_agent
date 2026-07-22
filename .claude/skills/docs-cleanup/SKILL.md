@@ -78,14 +78,20 @@ Use `mv` or `git mv` only after the checklist passes. Do not use `rm` or `git rm
 
 ## Final Verification
 
-Run:
+Prefer the wrapper:
 
 ```bash
-deno fmt --check scripts/*.mjs
-deno run --allow-read scripts/validate-frontmatter.mjs
+./scripts/check-docs.sh
+```
+
+When isolating a failure, use the same permissions as the wrapper:
+
+```bash
+deno run --allow-read --allow-env --allow-run=git scripts/validate-frontmatter.mjs
 deno run --allow-read scripts/validate-todo.mjs
-deno run --allow-read scripts/validate-doc-links.mjs
-deno run --allow-read scripts/validate-qa.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-doc-links.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-intent.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-qa.mjs
 ```
 
 ## Deliverables

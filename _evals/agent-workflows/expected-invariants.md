@@ -19,6 +19,7 @@
 - `Size < M` のタスクは `Plan: None` を許容する。
 - Size >= M tasks require Plan / Intent / QA.
 - Risk >= Medium tasks require Intent / QA.
+- Intentional omissions that future maintainers could mistake for missing work must be recorded lightly or escalated to Intent.
 - High / Critical risk tasks require explicit verification before completion.
 - Bug fixes require regression test or no-test rationale.
 - Refactors require behavior-preservation checks.
@@ -32,14 +33,23 @@
 - archive checklist を満たす一時ドキュメント移送に限り `mv` / `git mv` を使える。
 - secret や `.env` 実値を diff / log に出さない。
 - Root-level one-off implementation prompts must not be treated as active guidance.
+- Template updates use a recommended release tag resolved to a full SHA, not a moving branch tip.
+- `docs-template.lock.json` advances only after the target files are reconciled and compatibility checks pass, and closure verification confirms the updated tag and full SHA.
+- A pre-`v1.0.0` project may bootstrap directly to any recommended `v1.0.0` or later release after its original template commit is identified; an intermediate migration is not required.
+- Compatibility migration and strict schema migration are reported separately.
 
 ## Validation
 
 - `deno fmt --check scripts/*.mjs`
-- `deno run --allow-read scripts/validate-frontmatter.mjs`
+- `deno run --allow-read --allow-env --allow-run=git scripts/validate-frontmatter.mjs`
 - `deno run --allow-read scripts/validate-todo.mjs`
-- `deno run --allow-read scripts/validate-doc-links.mjs`
-- `deno run --allow-read scripts/validate-qa.mjs`
-- `deno run --allow-read --allow-run scripts/test-validators.mjs`
+- `deno run --allow-read --allow-env --allow-run=git scripts/validate-doc-links.mjs`
+- `deno run --allow-read --allow-env --allow-run=git scripts/validate-intent.mjs`
+- `deno run --allow-read --allow-env --allow-run=git scripts/validate-qa.mjs`
+- `deno run --allow-read --allow-write --allow-env --allow-run scripts/test-validators.mjs`
+- `deno run --allow-read --allow-run=git scripts/test-agent-workflow-hook.mjs`
+- `deno run --allow-read scripts/test-agent-workflow-smoke.mjs`
 - Verification metadata must match the body verdict.
 - Validator fixtures must include both valid and intentionally invalid examples.
+- New intent records use `intent_schema: 2`, stable `DEC-*` IDs, and causal `Why`.
+- `INV-*` is optional and must not freeze a current mechanism or arbitrary value.

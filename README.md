@@ -250,6 +250,22 @@ secrets を要求しません。
 ドキュメント検証は既存の `Docs CI` が `scripts/check-docs.sh` 相当の
 validator 群を実行します。
 
+既存 project への段階導入として、CI は
+`DD_SCOPE_BASE=cc292d5e14c6ba92b3a996a8d07e125cf88751a2` と
+`DD_SCOPE_DIFF_FILTER=ACMR` を使います。P 以降に追加・編集・コピー・rename
+された docs を検証対象にし、local closure では scope なしの全走査も実行します。
+
+採用中の docs-driven template release は `docs-template.lock.json` に tag と full
+SHA を記録します。継続更新では
+[`docs-template-migration`](.agents/skills/docs-template-migration/SKILL.md) を使い、
+upstream delta と project customization を three-way inventory で reconciliation
+します。provenance lock と project-local validator scope は別の契約です。
+
+Codex / Claude Code 向け lifecycle hook は docs や TODO を自動更新しません。
+書き込み前の安全確認と完了時の QA evidence 確認を行う guardrail であり、
+project tests、verification、owner judgement の代替ではありません。久しぶりの再開や
+handoff 探索では `docs-inventory` を read-only 診断として使います。
+
 QA 計画と検証証跡は `_docs/qa/Core/memory-ecology-poc/` にあります。実装判断は `_docs/intent/Core/memory-ecology-poc/decision.md`、詳細リファレンスは `_docs/reference/Core/memory-ecology-poc/reference.md` を参照してください。
 
 ## 既知の制限

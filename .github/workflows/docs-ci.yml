@@ -9,9 +9,14 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    env:
+      DD_SCOPE_BASE: cc292d5e14c6ba92b3a996a8d07e125cf88751a2
+      DD_SCOPE_DIFF_FILTER: ACMR
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Markdownlint
         uses: DavidAnson/markdownlint-cli2-action@v16
@@ -25,6 +30,7 @@ jobs:
             QUICKSTART.md
             !_docs/archives/**/*
             !_docs/standards/templates/**/*
+            !_evals/quarantine/**/*
           config: .markdownlint.jsonc
 
       - name: Setup Deno
@@ -32,20 +38,5 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Check Deno script formatting
-        run: deno fmt --check scripts/*.mjs
-
-      - name: Validate frontmatter
-        run: deno run --allow-read scripts/validate-frontmatter.mjs
-
-      - name: Validate TODO
-        run: deno run --allow-read scripts/validate-todo.mjs
-
-      - name: Validate doc links
-        run: deno run --allow-read scripts/validate-doc-links.mjs
-
-      - name: Validate QA docs
-        run: deno run --allow-read scripts/validate-qa.mjs
-
-      - name: Test validators against fixtures
-        run: deno run --allow-read --allow-run scripts/test-validators.mjs
+      - name: Run documentation validators
+        run: ./scripts/check-docs.sh

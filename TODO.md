@@ -2,7 +2,7 @@
 
 ## 0. System Metadata
 
-- **Current Max ID**: `Next ID No: 22` (タスク追加時にインクリメント必須)
+- **Current Max ID**: `Next ID No: 25` (タスク追加時にインクリメント必須)
 - **ID Source of Truth**: このファイルの `Next ID No` 行が、全プロジェクトにおける唯一の ID 発番元である。
 
 ## 1. Task Lifecycle (State Machine)
@@ -110,6 +110,8 @@
 | `Category Refactor` | QA test-plan に behavior-preservation checks を含める。 |
 | Agent workflow / validator / CI / Skill / documentation rule 変更 | QA test-plan に agent misbehavior checks を含める。 |
 
+`Size XS/S` かつ `Risk Low` でも、将来の作業者が未実装と誤認しそうな非対応・制限・省略は intentional omission risk として扱う。その場合は、必須フィールドを増やさず、TODO Description / PR / commit、または必要に応じて Plan Non-Goals / Intent の DEC（Why / Why not）に理由を残す。
+
 ## 4. Completion Rules
 
 タスクを `TODO.md` から削除できるのは、以下を満たす場合のみ。
@@ -184,17 +186,18 @@ Risk の詳細は `_docs/standards/quality_assurance.md` を参照する。
 1. `Next ID No` を読み取り、割り当て予定の ID を決定する。
 2. `Next ID No` をインクリメントしてファイルを更新する。
 3. Inbox の内容を解析し、最適な `Area` / `Category` / `Risk` を決定する。
-4. ID を生成する。
-5. Acceptance Criteria を `AC-001` 形式で書く。
-6. 必須文書条件に従い、Plan / Intent / QA / Verification を `None` または canonical path で埋める。
-7. タスクを `Backlog` の末尾に追加する。
-8. 元の Inbox 行を削除する。
+4. intentional omission risk があるか確認する。将来「未実装なので直す」と誤認されそうな非対応・制限・省略がある場合は、Description に理由を残すか、設計判断として Intent を作成する。
+5. ID を生成する。
+6. Acceptance Criteria を `AC-001` 形式で書く。
+7. 必須文書条件に従い、Plan / Intent / QA / Verification を `None` または canonical path で埋める。
+8. タスクを `Backlog` の末尾に追加する。
+9. 元の Inbox 行を削除する。
 
 ### Promote to Ready
 
 1. `Size >= M` なら Plan / Intent / QA が存在することを確認する。
 2. `Risk >= Medium` なら Intent / QA が存在することを確認する。
-3. QA test-plan の Test Matrix が、主要 AC / INV を最低 1 つの確認手段へ割り当てていることを確認する。
+3. QA test-plan の Test Matrix が主要 AC と、存在する場合の INV を最低 1 つの確認手段へ割り当て、影響する DEC の review scope を示していることを確認する。
 4. Dependencies が解決済みか確認する。
 5. 全てクリアした場合のみ `Ready` セクションへ移動する。
 
@@ -251,7 +254,7 @@ Risk の詳細は `_docs/standards/quality_assurance.md` を参照する。
 - **Goal**: 新規メンバーが onboarding command で初期診断を実行できる。
 - **Acceptance Criteria**:
   - AC-001: command が環境診断を実行し、結果を標準出力に表示する。
-  - AC-002: intent-derived invariant に基づくテストまたは validator が存在する。
+  - AC-002: decision の Why / Change freedom が記録され、必要な場合だけ intent-derived invariant に基づくテストまたは validator が存在する。
 - **Steps**:
   1. [ ] Plan の Scope / Non-Goals を確認する
   2. [ ] QA test-plan の Test Matrix に従って実装と検証を進める
@@ -348,6 +351,56 @@ Risk の詳細は `_docs/standards/quality_assurance.md` を参照する。
 - **Description**:
   - Context: OSS 配布前に著作者表示をプロジェクトに合わせる。
   - Notes: `Size XS` かつ `Risk Low` のため Plan / Intent / QA は不要。
+- **Plan**: None
+- **Intent**: None
+- **QA**: None
+- **Verification**: None
+
+### Workflow-Chore-23: [Chore] Maintain strict schema migration intake
+
+- **Title**: [Chore] Maintain strict schema migration intake
+- **ID**: Workflow-Chore-23
+- **Priority**: P2
+- **Size**: XS
+- **Risk**: Low
+- **Area**: Workflow
+- **Dependencies**: []
+- **Goal**: legacy Core docs の semantic または QA-contract edit を strict schema v2 migration に接続する durable intake authority を維持する。
+- **Acceptance Criteria**:
+  - AC-001: 対象 edit は対応する intent / QA pair を decision-reviewed schema v2 migration として扱う。
+  - AC-002: schema marker だけを追加する bulk conversion は行わず、未着手 legacy docs は compatibility support として明示する。
+- **Steps**:
+  1. [ ] semantic または QA-contract edit の対象 docs pair を特定する
+  2. [ ] 対応する task の Plan / Intent / QA に strict migration scope を記録する
+  3. [ ] schema v2 verification と residual state を更新する
+- **Description**:
+  - Context: `Workflow-Chore-22` migration の STRICT-SCHEMA residual を、将来の意味単位の編集へ安全に引き継ぐ。
+  - Notes: 一括 marker 追加は DEC-003 の Non-Goal のままにし、この intake は strict migration 完了を先取りして主張しない。
+- **Plan**: None
+- **Intent**: None
+- **QA**: None
+- **Verification**: None
+
+### Core-Chore-24: [Chore] Scope packaging discovery baseline repair
+
+- **Title**: [Chore] Scope packaging discovery baseline repair
+- **ID**: Core-Chore-24
+- **Priority**: P2
+- **Size**: XS
+- **Risk**: Low
+- **Area**: Core
+- **Dependencies**: []
+- **Goal**: P と同一の `uv build` flat-layout discovery failure を migration regression と混同せず、別の distribution repair task として scope 化する。
+- **Acceptance Criteria**:
+  - AC-001: target / P の build failure equality と exit 2 の意味を packaging follow-up の input として残す。
+  - AC-002: package layout、distribution target、repair acceptance criteria を別 task の Plan / Intent / QA へ送るまで build-success を主張しない。
+- **Steps**:
+  1. [ ] target / P の `uv build` evidence と package discovery diagnostics を確認する
+  2. [ ] intended distribution layout と non-goals を決める
+  3. [ ] repair task の Plan / Intent / QA を作成して build-success verification を定義する
+- **Description**:
+  - Context: `Workflow-Chore-22` では target と P が同じ exit 2 だったため migration regression ではないが、packaging baseline は未解決である。
+  - Notes: 本 task は distribution repair の intake であり、現時点で `uv build` の PASS を意味しない。
 - **Plan**: None
 - **Intent**: None
 - **QA**: None

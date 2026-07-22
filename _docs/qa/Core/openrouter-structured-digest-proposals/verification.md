@@ -203,7 +203,7 @@ Result:
 | validation errors | `6/16` | `4/16` | `0/16` | `0/16` | `0/16` |
 | provider errors | `0` | `0` | `0` | `0` | `0` |
 | raw response persisted | `0` | `0` | `0` | `0` | `0` |
-| validation failure aggregate | not available | `related_concern_ids.0 | int_parsing | 4` | `[]` | `[]` | `[]` |
+| validation failure aggregate | not available | `related_concern_ids.0 \| int_parsing \| 4` | `[]` | `[]` | `[]` |
 
 ## Diagnostic Note
 
@@ -459,7 +459,7 @@ _evals/reports/openrouter_structured_qwen_digest_shadow_validation_aggregate_202
 | validation errors | `4/16` |
 | provider errors | `0` |
 | raw response persisted | `0` |
-| validation aggregate | `related_concern_ids.0 | int_parsing | 4` |
+| validation aggregate | `related_concern_ids.0 \| int_parsing \| 4` |
 
 ### Difference From Previous `10/16` Structured Run
 
@@ -526,7 +526,7 @@ _evals/reports/openrouter_structured_qwen_digest_shadow_related_concern_ids_prom
 | validation errors | `4/16` | `0/16` | `-4` |
 | provider errors | `0` | `0` | no change |
 | raw response persisted | `0` | `0` | no change |
-| validation aggregate | `related_concern_ids.0 | int_parsing | 4` | `[]` | fixed in this run |
+| validation aggregate | `related_concern_ids.0 \| int_parsing \| 4` | `[]` | fixed in this run |
 
 ### Interpretation
 

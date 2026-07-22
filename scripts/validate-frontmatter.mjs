@@ -1,5 +1,7 @@
 // Deno版バリデータ: npm / remote import 依存なしで front-matter と stale ロジックを検証
 
+import { loadScope, makeInScope } from "./scope.mjs";
+
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const MS_PER_DAY = 1000 * 60 * 60 * 24;
 const STALE_DAYS = 30;
@@ -22,8 +24,16 @@ const REQUIRED_KEYS = [
   "related_issues",
   "related_prs",
 ];
+const REQUIRED_SCALARS = [
+  "title",
+  "status",
+  "draft_status",
+  "created_at",
+  "updated_at",
+];
 const STATUS_VALUES = ["proposed", "active", "superseded", "obsolete"];
 const DRAFT_STATUS_VALUES = ["idea", "exploring", "paused", "n/a"];
+const SCHEMA_MARKERS = new Set(["intent_schema", "qa_schema"]);
 
 const isStringArray = (val) =>
   Array.isArray(val) && val.every((v) => typeof v === "string");
@@ -140,6 +150,9 @@ const parseFrontMatter = (src) => {
     }
 
     const [, key, rest = ""] = match;
+    if (key in attrs) {
+      return { attrs: null, error: `duplicate front matter field: ${key}` };
+    }
     if (rest.trim() !== "") {
       attrs[key] = parseScalar(rest);
       continue;
@@ -178,13 +191,43 @@ const report = (prefix, file, messages, logger) => {
   for (const msg of messages) logger(`  - ${msg}`);
 };
 
+const fileOrDir = async (path) => {
+  const stat = await Deno.stat(path);
+  return stat.isFile ? "file" : "dir";
+};
+
+const collectMarkdown = async function* (target) {
+  if (await fileOrDir(target) === "file") {
+    yield normalizePath(target);
+    return;
+  }
+  yield* walkMarkdown(target);
+};
+
+const parseArgs = (args) => {
+  const fixtureIndex = args.indexOf("--fixture");
+  if (fixtureIndex === -1) return { target: "_docs", fixtureMode: false };
+  const target = args[fixtureIndex + 1];
+  if (!target) throw new Error("--fixture requires a file or directory");
+  return { target, fixtureMode: true };
+};
+
+const expectedSchemaMarker = (path) => {
+  if (normalizePath(path).startsWith("_docs/intent/")) return "intent_schema";
+  if (normalizePath(path).startsWith("_docs/qa/")) return "qa_schema";
+  return null;
+};
+
 const run = async () => {
   const errors = [];
   const warnings = [];
+  const { target, fixtureMode } = parseArgs(Deno.args);
+  const inScope = fixtureMode ? () => true : makeInScope(await loadScope());
 
-  for await (const file of walkMarkdown("_docs")) {
-    if (isInArchives(file)) continue;
-    if (isInStandards(file)) continue;
+  for await (const file of collectMarkdown(target)) {
+    if (!fixtureMode && isInArchives(file)) continue;
+    if (!fixtureMode && isInStandards(file)) continue;
+    if (!fixtureMode && !inScope(file)) continue;
 
     const { attrs: data, error } = await loadFrontMatter(file);
     const fileErrors = [];
@@ -194,18 +237,42 @@ const run = async () => {
       continue;
     }
 
+    const logicalPath = fixtureMode && typeof data.fixture_path === "string"
+      ? normalizePath(data.fixture_path)
+      : normalizePath(file);
+    const schemaMarker = expectedSchemaMarker(logicalPath);
+    for (
+      const key of Object.keys(data).filter((name) => name.endsWith("_schema"))
+    ) {
+      if (!SCHEMA_MARKERS.has(key)) {
+        fileErrors.push(`unknown schema marker: ${key}`);
+      } else if (key !== schemaMarker) {
+        fileErrors.push(
+          `${key} is not valid for document type at ${logicalPath}`,
+        );
+      }
+    }
+
     for (const key of REQUIRED_KEYS) {
       if (!(key in data)) {
         fileErrors.push(`missing required field: ${key}`);
       }
     }
+    for (const key of REQUIRED_SCALARS) {
+      if (
+        key in data &&
+        (typeof data[key] !== "string" || data[key].trim() === "")
+      ) {
+        fileErrors.push(`required field must be a non-empty string: ${key}`);
+      }
+    }
 
     const status = data.status;
     const draftStatus = data.draft_status;
-    if (status && !STATUS_VALUES.includes(status)) {
+    if ("status" in data && !STATUS_VALUES.includes(status)) {
       fileErrors.push(`status must be one of ${STATUS_VALUES.join(", ")}`);
     }
-    if (draftStatus && !DRAFT_STATUS_VALUES.includes(draftStatus)) {
+    if ("draft_status" in data && !DRAFT_STATUS_VALUES.includes(draftStatus)) {
       fileErrors.push(
         `draft_status must be one of ${DRAFT_STATUS_VALUES.join(", ")}`,
       );
@@ -225,7 +292,7 @@ const run = async () => {
       );
     }
 
-    if (isQaPath(file)) {
+    if (isQaPath(logicalPath)) {
       if (!("qa_status" in data)) {
         fileErrors.push("missing required QA field: qa_status");
       } else if (!QA_STATUS_VALUES.includes(data.qa_status)) {
@@ -272,7 +339,7 @@ const run = async () => {
       );
     }
 
-    if (isDraftPath(file) && status === "proposed" && updatedAt) {
+    if (isDraftPath(logicalPath) && status === "proposed" && updatedAt) {
       const today = todayDate();
       const daysSinceUpdate = diffDays(updatedAt, today);
       if (daysSinceUpdate > STALE_DAYS) {
@@ -299,7 +366,7 @@ const run = async () => {
       }
     }
 
-    if (isDraftPath(file) && status && status !== "proposed") {
+    if (isDraftPath(logicalPath) && status && status !== "proposed") {
       fileWarnings.push(
         `draft has status "${status}" (consider elevating to plan/intent or align status)`,
       );
@@ -308,7 +375,9 @@ const run = async () => {
     for (const key of Object.keys(data)) {
       if (
         !REQUIRED_KEYS.includes(key) &&
-        !(isQaPath(file) && ["qa_status", "risk"].includes(key)) &&
+        !(isQaPath(logicalPath) && ["qa_status", "risk"].includes(key)) &&
+        !(key === schemaMarker && SCHEMA_MARKERS.has(key)) &&
+        !(fixtureMode && key === "fixture_path") &&
         !key.startsWith("stale_exempt") &&
         key !== "stale_extensions"
       ) {

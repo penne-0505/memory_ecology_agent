@@ -93,6 +93,8 @@ mode は `observe_only` から始め、検証後に `ingest_enabled`、`command_
 - root の一回限り prompt は active guidance にしない。履歴として残す場合は `_evals/prompts/` に置き、非運用資料と明記する。
 - `rm` / `git rm` は使わない。
 - Size >= M または Risk >= Medium の変更では Plan / Intent / QA / Verification を更新する。
+- 久しぶりの再開、handoff 探索、docs の運用状態確認では `docs-inventory` を使う。
+- template release 更新では `docs-template-migration` を使い、tag と full SHA を固定する。
 
 ## 6. 検証コマンド
 
@@ -106,11 +108,14 @@ uv run --python /home/penne/.local/bin/python3.12 pytest
 
 ```bash
 deno fmt --check scripts/*.mjs
-deno run --allow-read scripts/validate-frontmatter.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-frontmatter.mjs
 deno run --allow-read scripts/validate-todo.mjs
-deno run --allow-read scripts/validate-doc-links.mjs
-deno run --allow-read scripts/validate-qa.mjs
-deno run --allow-read --allow-run scripts/test-validators.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-doc-links.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-intent.mjs
+deno run --allow-read --allow-env --allow-run=git scripts/validate-qa.mjs
+deno run --allow-read --allow-write --allow-env --allow-run scripts/test-validators.mjs
+deno run --allow-read --allow-run=git scripts/test-agent-workflow-hook.mjs
+deno run --allow-read scripts/test-agent-workflow-smoke.mjs
 ```
 
 まとめて実行する場合:
@@ -118,3 +123,50 @@ deno run --allow-read --allow-run scripts/test-validators.mjs
 ```bash
 ./scripts/check-docs.sh
 ```
+
+CI 相当の Markdown lint:
+
+```bash
+npx markdownlint-cli2 "_docs/**/*.md" "_evals/**/*.md" "README.md" \
+  "AGENTS.md" "TODO.md" "QUICKSTART.md" "!_docs/archives/**/*" \
+  "!_docs/standards/templates/**/*" "!_evals/quarantine/**/*" \
+  --config .markdownlint.jsonc
+```
+
+## 7. 段階的導入スコープ
+
+CI は owner-approved migration cutoff を project-local baseline にします。
+
+```yaml
+env:
+  DD_SCOPE_BASE: cc292d5e14c6ba92b3a996a8d07e125cf88751a2
+  DD_SCOPE_DIFF_FILTER: ACMR
+```
+
+`actions/checkout` は `fetch-depth: 0` にし、baseline commit を参照できるようにします。
+`TODO.md` は scope に関係なく常に全体を検証します。
+`DD_SCOPE_BASE` は導入先 repository 内の validator scope であり、upstream
+template revision を示す値ではありません。
+
+## 8. Template の継続更新
+
+template 更新では `docs-template.lock.json` の B と推奨 tag U を full SHA で固定し、
+`docs-template-migration` で project customization を保全する three-way migration を
+行います。U の配布物を reconciliation し、compatibility checks が成功した後に lock
+を更新します。strict schema migration を延期した場合は lock ではなく verification に
+別 verdict として記録します。
+
+`v1.0.0` より前の legacy project は lock や local migration skill を持たない場合が
+あります。その場合は history、adoption record、matching upstream blob から B を復元し、
+owner 確認後に `v1.0.0` 以降の任意の推奨 tag へ直接移行できます。B が一意に決まらない
+場合は推測せず停止します。
+
+## 9. Agent lifecycle hooks
+
+- Codex: [.codex/hooks.json](.codex/hooks.json)
+- Claude Code: [.claude/settings.json](.claude/settings.json)
+- 共通 script: [scripts/agent-workflow-hook.mjs](scripts/agent-workflow-hook.mjs)
+
+hook は SessionStart / UserPromptSubmit / PreToolUse / Stop で workflow と安全境界を
+再確認します。docs の自動更新や QA の代替は行いません。利用時は各 agent の hook
+設定を確認して信頼してください。

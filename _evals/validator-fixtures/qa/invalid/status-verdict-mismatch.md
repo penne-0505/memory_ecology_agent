@@ -7,11 +7,11 @@ risk: Medium
 created_at: 2026-05-25
 updated_at: 2026-05-25
 references:
-  - "_docs/qa/Template/intent-qa-finalization/test-plan.md"
-  - "_docs/intent/Template/intent-qa-finalization/decision.md"
+  - "_docs/qa/Workflow/incremental-adoption-scope/test-plan.md"
+  - "_docs/intent/Workflow/incremental-adoption-scope/decision.md"
 related_issues: []
 related_prs: []
-fixture_path: "_docs/qa/Template/intent-qa-finalization/verification.md"
+fixture_path: "_docs/qa/Workflow/incremental-adoption-scope/verification.md"
 ---
 
 # Fixture QA status verdict mismatch
@@ -28,7 +28,7 @@ Verdict: FAIL
 
 | Command / Test | Result | Notes |
 | --- | --- | --- |
-| `deno run --allow-read scripts/validate-qa.mjs _evals/validator-fixtures/qa/invalid/status-verdict-mismatch.md` | FAIL | The mismatch must be rejected. |
+| `deno run --allow-read scripts/validate-qa.mjs --fixture _evals/validator-fixtures/qa/invalid/status-verdict-mismatch.md` | FAIL | The mismatch must be rejected. |
 
 ## Automated Test Results
 

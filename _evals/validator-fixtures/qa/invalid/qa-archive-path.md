@@ -7,17 +7,17 @@ risk: Medium
 created_at: 2026-05-25
 updated_at: 2026-05-25
 references:
-  - "_docs/intent/Template/intent-qa-finalization/decision.md"
+  - "_docs/intent/Workflow/incremental-adoption-scope/decision.md"
 related_issues: []
 related_prs: []
-fixture_path: "_docs/archives/qa/Template/intent-qa-finalization/test-plan.md"
+fixture_path: "_docs/archives/qa/Workflow/incremental-adoption-scope/test-plan.md"
 ---
 
 # Fixture QA archive path
 
 ## Source of Intent
 
-- Intent: `_docs/intent/Template/intent-qa-finalization/decision.md`
+- Intent: `_docs/intent/Workflow/incremental-adoption-scope/decision.md`
 
 ## Quality Goal
 
@@ -43,8 +43,8 @@ Use `validate-qa.mjs` in fixture mode.
 
 | ID | Source | Requirement / Invariant | Test Type | Command / File | Expected Evidence | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| AC-001 | fixture | QA archive path fails. | validator | `deno run --allow-read scripts/validate-qa.mjs _evals/validator-fixtures/qa/invalid/qa-archive-path.md` | Validator exits non-zero. | planned |
-| INV-001 | intent | QA docs must not be archived. | validator | `deno run --allow-read scripts/validate-qa.mjs _evals/validator-fixtures/qa/invalid/qa-archive-path.md` | `archives/qa` is rejected. | planned |
+| AC-001 | fixture | QA archive path fails. | validator | `deno run --allow-read scripts/validate-qa.mjs --fixture _evals/validator-fixtures/qa/invalid/qa-archive-path.md` | Validator exits non-zero. | planned |
+| INV-001 | intent | QA docs must not be archived. | validator | `deno run --allow-read scripts/validate-qa.mjs --fixture _evals/validator-fixtures/qa/invalid/qa-archive-path.md` | `archives/qa` is rejected. | planned |
 
 ## Manual QA Checklist
 
